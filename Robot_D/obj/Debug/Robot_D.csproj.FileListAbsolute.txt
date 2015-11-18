@@ -1,0 +1,18 @@
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\bin\Debug\Robot_D.exe.config
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\bin\Debug\Robot_D.exe
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.csprojResolveAssemblyReference.cache
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.Form1.resources
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.Properties.Resources.resources
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.exe
+d:\мои документы\visual studio 2013\Projects\Robot_D\Robot_D\obj\Debug\Robot_D.pdb
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robot_D.exe.config
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.exe
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.pdb
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.csprojResolveAssemblyReference.cache
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.Form1.resources
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.Properties.Resources.resources
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robot_D.exe
+C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
