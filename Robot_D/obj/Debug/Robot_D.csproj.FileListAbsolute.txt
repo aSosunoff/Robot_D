@@ -16,3 +16,6 @@ C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robo
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robot_D.exe
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\bin\Debug\Robot_D.exe.config
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.exe
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.pdb
