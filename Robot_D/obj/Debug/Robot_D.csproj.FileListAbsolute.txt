@@ -19,3 +19,9 @@ C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Robot_D\bin\Debug\Robo
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\bin\Debug\Robot_D.exe.config
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.exe
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\bin\Debug\Robot_D.exe
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.csprojResolveAssemblyReference.cache
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.Form1.resources
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.Properties.Resources.resources
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache

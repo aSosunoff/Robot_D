@@ -22,7 +22,7 @@ namespace Robot_D
             try
             {
                 Commander commander = new Commander();
-                tbCommand.Text = commander.SendCommand("5 5\r\n0 0 N\r\nmmM");
+                tbCommand.Text = commander.SendCommand("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n");
             }
             catch (ExceptionUser exceptionUser)
             {

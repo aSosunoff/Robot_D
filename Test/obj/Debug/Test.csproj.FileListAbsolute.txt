@@ -16,3 +16,12 @@ C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Test\bin\Debug\nunit.f
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Test\obj\Debug\Test.dll
 C:\Users\Пользователь\Desktop\Robot_D\Robot_D\Test\obj\Debug\Test.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\Test.dll
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\Test.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\nunit.framework.dll
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\Robot_D.exe
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\Robot_D.pdb
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\Debug\nunit.framework.xml
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.dll
+D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.pdb
