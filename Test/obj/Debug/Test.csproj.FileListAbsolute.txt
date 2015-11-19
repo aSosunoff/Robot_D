@@ -25,3 +25,12 @@ D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\bin\De
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.dll
 D:\Мои документы\Visual Studio 2013\Projects\git\Robot_D\Test\obj\Debug\Test.pdb
+K:\Git_Repos\Robot_D\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+K:\Git_Repos\Robot_D\Test\obj\Debug\Test.dll
+K:\Git_Repos\Robot_D\Test\bin\Debug\Test.dll
+K:\Git_Repos\Robot_D\Test\bin\Debug\Test.pdb
+K:\Git_Repos\Robot_D\Test\bin\Debug\nunit.framework.dll
+K:\Git_Repos\Robot_D\Test\bin\Debug\Robot_D.exe
+K:\Git_Repos\Robot_D\Test\bin\Debug\Robot_D.pdb
+K:\Git_Repos\Robot_D\Test\bin\Debug\nunit.framework.xml
+K:\Git_Repos\Robot_D\Test\obj\Debug\Test.pdb

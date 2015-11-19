@@ -58,11 +58,6 @@ namespace Robot_D.Center_Layer
         #endregion
         #region конструктор
 
-        public Area()
-        {
-            _point = new Point();
-        }
-
         public Area(string s)
         {
             try

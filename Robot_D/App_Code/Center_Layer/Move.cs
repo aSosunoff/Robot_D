@@ -68,7 +68,6 @@ namespace Robot_D.Center_Layer
 
                 regex = new Regex(@"[LlRrMm]");
                 MatchCollection matches = regex.Matches(command);
-                //string[] arrString = command;
                 foreach (var i in matches)
                 {
                     if ((i.ToString() != "M") && (i.ToString() != "m"))

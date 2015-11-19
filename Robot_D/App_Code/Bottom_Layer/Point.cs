@@ -75,11 +75,6 @@ namespace Robot_D.Bottom_Layer
         #endregion
         #region конструктор
 
-        public Point()
-        {
-            _x = -1;
-            _y = -1;
-        }
         public Point(int x, int y)
         {
             SetCoordinate(x, y);

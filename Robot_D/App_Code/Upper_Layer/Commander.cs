@@ -26,7 +26,10 @@ namespace Upper_Layer
             string s = "";
             sendCommand = sendCommand.Trim();
             Regex a = new Regex(@"[^\r\n]+");
-            var arrCommandList = a.Matches(sendCommand).Cast<Match>().Select(m => m.Value).ToArray();
+            var arrCommandList = a.Matches(sendCommand)
+                .Cast<Match>()
+                .Select(m => m.Value)
+                .ToArray();
             if (((arrCommandList.Length - 1) % 2) == 0)
             {
                 _area = new Area(arrCommandList[0]);

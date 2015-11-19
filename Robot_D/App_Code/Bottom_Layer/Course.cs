@@ -8,7 +8,6 @@ namespace Robot_D.Bottom_Layer
 
         #region поле
         private string _direction;
-        //private int _directionInt;
         #endregion
         #region свойство
         public string Direction
@@ -29,12 +28,6 @@ namespace Robot_D.Bottom_Layer
                     throw new ExceptionUser("Дрон может иметь только одно направление из (N, E, S, W)");
             }
         }
-
-        //public void Turn(char Side)
-        //{
-        //    Turn(Side.ToString());
-        //}
-
         public void Turn(string Side)
         {
             Side = Side.ToUpper();

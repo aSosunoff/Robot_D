@@ -49,62 +49,62 @@ namespace Test
 
             Assert.AreEqual(1, actual);
         }
-        [Test]
-        public void Area_Set_MAX_X_1_Returned_Max_X_1()
-        {
-            var Area = new Area();
+        //[Test]
+        //public void Area_Set_MAX_X_1_Returned_Max_X_1()
+        //{
+        //    var Area = new Area();
 
-            Area.Max_X = 1;
+        //    Area.Max_X = 1;
 
-            var actual = Area.Max_X;
+        //    var actual = Area.Max_X;
 
-            Assert.AreEqual(1, actual);
-        }
-        [Test]
-        public void Area_Set_MAX_Y_1_Returned_Max_Y_1()
-        {
-            var Area = new Area();
+        //    Assert.AreEqual(1, actual);
+        //}
+        //[Test]
+        //public void Area_Set_MAX_Y_1_Returned_Max_Y_1()
+        //{
+        //    var Area = new Area();
 
-            Area.Max_Y = 1;
+        //    Area.Max_Y = 1;
 
-            var actual = Area.Max_Y;
+        //    var actual = Area.Max_Y;
 
-            Assert.AreEqual(1, actual);
-        }
+        //    Assert.AreEqual(1, actual);
+        //}
 
-        [Test]
-        //[ExpectedException(typeof(ExceptionUser))]
-        public void Area_Get_Null_Max_X_Returned_Exception()
-        {
-            var Area = new Area();
+        //[Test]
+        ////[ExpectedException(typeof(ExceptionUser))]
+        //public void Area_Get_Null_Max_X_Returned_Exception()
+        //{
+        //    var Area = new Area();
 
-            try
-            {
-                var actual = Area.Max_X;
-            }
-            catch (ExceptionUser exUser)
-            {
-                Assert.AreEqual("Координата X у поля не корректна", exUser.Message);
-                //throw;
-            }
-        }
+        //    try
+        //    {
+        //        var actual = Area.Max_X;
+        //    }
+        //    catch (ExceptionUser exUser)
+        //    {
+        //        Assert.AreEqual("Координата X у поля не корректна", exUser.Message);
+        //        //throw;
+        //    }
+        //}
 
-        [Test]
-        //[ExpectedException(typeof(ExceptionUser))]
-        public void Area_Get_Null_Max_Y_Returned_Exception()
-        {
-            var Area = new Area();
+        //[Test]
+        ////[ExpectedException(typeof(ExceptionUser))]
+        //public void Area_Get_Null_Max_Y_Returned_Exception()
+        //{
+        //    var Area = new Area();
 
-            try
-            {
-                var actual = Area.Max_Y;
-            }
-            catch (ExceptionUser exUser)
-            {
-                Assert.AreEqual("Координата Y у поля не корректна", exUser.Message);
-                //throw;
-            }
-        }
+        //    try
+        //    {
+        //        var actual = Area.Max_Y;
+        //    }
+        //    catch (ExceptionUser exUser)
+        //    {
+        //        Assert.AreEqual("Координата Y у поля не корректна", exUser.Message);
+        //        //throw;
+        //    }
+        //}
 
         [Test]
         //[ExpectedException(typeof(ExceptionUser))]
@@ -140,21 +140,21 @@ namespace Test
             }
         }
 
-        [Test]
-        //[ExpectedException(typeof(ExceptionUser))]
-        public void Area_SetArea_UNCORRECT_Returned_Exception()
-        {
-            var Area = new Area();
+        //[Test]
+        ////[ExpectedException(typeof(ExceptionUser))]
+        //public void Area_SetArea_UNCORRECT_Returned_Exception()
+        //{
+        //    var Area = new Area();
 
-            try
-            {
-                Area.SetArea = "as2";
-            }
-            catch (ExceptionUser exUser)
-            {
-                Assert.AreEqual("Координаты поля не корректны", exUser.Message);
-                //throw;
-            }
-        }
+        //    try
+        //    {
+        //        Area.SetArea = "as2";
+        //    }
+        //    catch (ExceptionUser exUser)
+        //    {
+        //        Assert.AreEqual("Координаты поля не корректны", exUser.Message);
+        //        //throw;
+        //    }
+        //}
     }
 }
