@@ -13,7 +13,6 @@ namespace Upper_Layer
         #region поле
         private List<Dron> _dron; 
         private Area _area;
-        //Поле на котором гуляют дроны
         #endregion
 
         #region свойство
