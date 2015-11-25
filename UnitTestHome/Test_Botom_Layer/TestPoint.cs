@@ -20,7 +20,7 @@ namespace UnitTestHome.Test_Botom_Layer
                     { -1, 1 },
                     { -1, 1 },
                     { -2147483648, 2147483647 },
-                    { 2147483647, -2147483648 }
+                    { 2147483647, -2147483648 },
                 };
 
                 //foreach (int iElement in Arr)
