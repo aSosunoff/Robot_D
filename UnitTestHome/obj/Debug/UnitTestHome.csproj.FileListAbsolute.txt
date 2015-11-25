@@ -1,0 +1,7 @@
+K:\Git_Repos\Robot_D\UnitTestHome\bin\Debug\UnitTestHome.dll
+K:\Git_Repos\Robot_D\UnitTestHome\bin\Debug\UnitTestHome.pdb
+K:\Git_Repos\Robot_D\UnitTestHome\bin\Debug\Robot_D.exe
+K:\Git_Repos\Robot_D\UnitTestHome\bin\Debug\Robot_D.pdb
+K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.csprojResolveAssemblyReference.cache
+K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.dll
+K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.pdb
