@@ -9,7 +9,7 @@ namespace UnitTestHome.Test_Botom_Layer
     public class TestPoint
     {
         [TestMethod]
-        public void Point_Set_X_Returned()
+        public void Point_Set_X_Y_Int()
         {
             try
             {
