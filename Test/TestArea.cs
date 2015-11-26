@@ -106,39 +106,39 @@ namespace Test
         //    }
         //}
 
-        [Test]
-        //[ExpectedException(typeof(ExceptionUser))]
-        public void Area_Get_UNCORRECT_str_Returned_Exception()
-        {
+        //[Test]
+        ////[ExpectedException(typeof(ExceptionUser))]
+        //public void Area_Get_UNCORRECT_str_Returned_Exception()
+        //{
 
 
-            try
-            {
-                var Area = new Area("1dew2");
-            }
-            catch (ExceptionUser exUser)
-            {
-                Assert.AreEqual("Координаты поля не корректны", exUser.Message);
-                //throw;
-            }
-        }
+        //    try
+        //    {
+        //        var Area = new Area("1dew2");
+        //    }
+        //    catch (ExceptionUser exUser)
+        //    {
+        //        Assert.AreEqual("Координаты поля не корректны", exUser.Message);
+        //        //throw;
+        //    }
+        //}
 
-        [Test]
-        //[ExpectedException(typeof(ExceptionUser))]
-        public void Area_UNCORRECT_Param_Returned_Exception()
-        {
+        //[Test]
+        ////[ExpectedException(typeof(ExceptionUser))]
+        //public void Area_UNCORRECT_Param_Returned_Exception()
+        //{
 
 
-            try
-            {
-                var Area = new Area(-1, 2);
-            }
-            catch (ExceptionUser exUser)
-            {
-                Assert.AreEqual("Координаты поля не корректны", exUser.Message);
-                //throw;
-            }
-        }
+        //    try
+        //    {
+        //        var Area = new Area(-1, 2);
+        //    }
+        //    catch (ExceptionUser exUser)
+        //    {
+        //        Assert.AreEqual("Координаты поля не корректны", exUser.Message);
+        //        //throw;
+        //    }
+        //}
 
         //[Test]
         ////[ExpectedException(typeof(ExceptionUser))]

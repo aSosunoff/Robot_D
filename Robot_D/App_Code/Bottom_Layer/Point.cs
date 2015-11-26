@@ -15,10 +15,10 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                if (_x >= 0)
+                //if (_x >= 0)
                     return _x;
-                else
-                    throw new ExceptionPointX("Координата X не задана либо она не может быть менше нуля");
+                //else
+                //    throw new ExceptionPointX("Координата X не задана либо она не может быть менше нуля");
             }
             set
             {
@@ -33,10 +33,10 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                if (_y >= 0)
+                //if (_y >= 0)
                     return _y;
-                else
-                    throw new ExceptionPointY("Координата Y не задана либо она не может быть менше нуля");
+                //else
+                //    throw new ExceptionPointY("Координата Y не задана либо она не может быть менше нуля");
             }
             set
             {
@@ -60,16 +60,16 @@ namespace Robot_D.Bottom_Layer
 
         public void SetCoordinate(string X_Y)
         {
-            Regex regex = new Regex(@"^[^\S]*0*[1-9]+(0*[1-9]*)*[^\S]+0*[1-9]+(0*[1-9]*)*[^\S]*$");
+            Regex regex = new Regex(@"^[^\S]*[0-9]+[^\S]+[0-9]+[^\S]*$");
             if (regex.IsMatch(X_Y))
             {
-                regex = new Regex(@"[1-9]+(0*[1-9]*)*");
+                regex = new Regex(@"([1-9]+(0*[1-9]*)*)|^0$");
                 MatchCollection matches = regex.Matches(X_Y);
-                _x = Convert.ToInt32(matches[0].Value);
-                _y = Convert.ToInt32(matches[1].Value);
+                X = Convert.ToInt32(matches[0].Value);
+                Y = Convert.ToInt32(matches[1].Value);
             }
             else
-                throw new ExceptionUser("Некоректные координаты объекта");
+                throw new ExceptionPointSetCoordinateString("Некоректные координаты объекта");
         }
 
         #endregion
