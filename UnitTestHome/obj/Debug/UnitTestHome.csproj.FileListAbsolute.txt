@@ -5,3 +5,10 @@ K:\Git_Repos\Robot_D\UnitTestHome\bin\Debug\Robot_D.pdb
 K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.csprojResolveAssemblyReference.cache
 K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.dll
 K:\Git_Repos\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.pdb
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\bin\Debug\UnitTestHome.dll
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\bin\Debug\UnitTestHome.pdb
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\bin\Debug\Robot_D.exe
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\bin\Debug\Robot_D.pdb
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.csprojResolveAssemblyReference.cache
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.dll
+D:\Мои документы\GitHub\Robot_D\UnitTestHome\obj\Debug\UnitTestHome.pdb

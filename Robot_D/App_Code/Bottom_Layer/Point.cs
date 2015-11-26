@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Dron_Exception;
+using Robot_D.Exception;
 
 namespace Robot_D.Bottom_Layer
 {
@@ -18,14 +18,14 @@ namespace Robot_D.Bottom_Layer
                 if (_x >= 0)
                     return _x;
                 else
-                    throw new ExceptionUser("Координата X не задана либо она не может быть менше нуля");
+                    throw new ExceptionPointX("Координата X не задана либо она не может быть менше нуля");
             }
             set
             {
                 if (value >= 0)
                     _x = value;
                 else
-                    throw new ExceptionUser("Координата X не может быть меньше нуля");
+                    throw new ExceptionPointX("Координата X не может быть меньше нуля");
             }
         }
 
@@ -36,7 +36,7 @@ namespace Robot_D.Bottom_Layer
                 if (_y >= 0)
                     return _y;
                 else
-                    throw new ExceptionUser("Координата Y не задана либо она не может быть менше нуля");
+                    throw new ExceptionPointY("Координата Y не задана либо она не может быть менше нуля");
             }
             set
             {
@@ -45,7 +45,7 @@ namespace Robot_D.Bottom_Layer
                     _y = value;
                 }
                 else
-                    throw new ExceptionUser("Координата Y не может быть меньше нуля");
+                    throw new ExceptionPointY("Координата Y не может быть меньше нуля");
             }
         }
             

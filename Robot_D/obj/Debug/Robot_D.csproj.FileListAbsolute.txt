@@ -34,3 +34,12 @@ K:\Git_Repos\Robot_D\Robot_D\obj\Debug\Robot_D.Properties.Resources.resources
 K:\Git_Repos\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache
 K:\Git_Repos\Robot_D\Robot_D\bin\Debug\Robot_D.exe
 K:\Git_Repos\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
+D:\Мои документы\GitHub\Robot_D\Robot_D\bin\Debug\Robot_D.exe.config
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.exe
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.pdb
+D:\Мои документы\GitHub\Robot_D\Robot_D\bin\Debug\Robot_D.exe
+D:\Мои документы\GitHub\Robot_D\Robot_D\bin\Debug\Robot_D.pdb
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.csprojResolveAssemblyReference.cache
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.Form1.resources
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.Properties.Resources.resources
+D:\Мои документы\GitHub\Robot_D\Robot_D\obj\Debug\Robot_D.csproj.GenerateResource.Cache
