@@ -11,11 +11,7 @@ namespace TestPoint.Test_Botom_Layer
     public class TestPoint
     {
         [TestMethod]
-<<<<<<< HEAD
-        public void Point_Set_X_Y_Int()
-=======
         public void Point_Set_X_Y_int()
->>>>>>> 484d1c46f0c185fda0f0bcad331bbc74075d2dd9
         {
             try
             {

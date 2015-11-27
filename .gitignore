@@ -229,4 +229,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-bin/Debug/*
+Robot_D/bin/Debug/*
+Robot_D/obj/*
