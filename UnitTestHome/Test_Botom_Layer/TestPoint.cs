@@ -13,22 +13,22 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void Point_Set_X_Y_int()
         {
-            try
+            var arr = new[,]
             {
-                var arr = new[,]
-                {
-                    { 0, 1 },
-                    { -1, 1 },
-                    { -1, 1 },
-                    { -2147483648, 2147483647 },
-                    { 2147483647, -2147483648 },
-                };
+                { 0, 1 },
+                { -1, 1 },
+                { -1, 1 },
+                { -2147483648, 2147483647 },
+                { 2147483647, -2147483648 },
+            };
 
-                int index = 0;
+            int index = 0;
+            int actual;
 
-                foreach (int iElement in arr)
+            foreach (int iElement in arr)
+            {
+                try
                 {
-                    int actual;
                     if (( index % 2) == 0)
                     {
                         var point = new Point(iElement, 1);
@@ -42,16 +42,17 @@ namespace TestPoint.Test_Botom_Layer
                         actual = point.Y;
                     }
                     Assert.AreEqual(iElement, actual);
-                    index++;
                 }
-            }
-            catch (ExceptionPointX exPointX)
-            {
-                Assert.AreEqual("Координата X не может быть меньше нуля", exPointX.Message);
-            }
-            catch (ExceptionPointY exPointY)
-            {
-                Assert.AreEqual("Координата Y не может быть меньше нуля", exPointY.Message);
+                catch (ExceptionPointX exPointX)
+                {
+                    Assert.AreEqual("Координата X не может быть меньше нуля", exPointX.Message);
+                }
+                catch (ExceptionPointY exPointY)
+                {
+                    Assert.AreEqual("Координата Y не может быть меньше нуля", exPointY.Message);
+                }
+
+                index++;
             }
         }
 
@@ -63,10 +64,10 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void Point_Set_X_Y_string()
         {
-            try
-            {
+            
                 var arrIn = new[]
                 {
+                    "      0000020000103       0150       ",
                     "1 -1",
                     "-1 1",
                     "05 06",
@@ -77,6 +78,7 @@ namespace TestPoint.Test_Botom_Layer
                 };
                 var arrOut = new[]
                 {
+                    20000103, 150,
                     1, -1,
                     -1, 1,
                     5, 6,
@@ -88,27 +90,22 @@ namespace TestPoint.Test_Botom_Layer
 
                 for (int i = 0; i < arrIn.Length; i++)
                 {
-                    var point = new Point(arrIn[i]);
+                    try
+                    {
+                        var point = new Point(arrIn[i]);
 
-                    var actual = point.X;
-                    Assert.AreEqual(arrOut[i*2], actual);
+                        var actual = point.X;
+                        Assert.AreEqual(arrOut[i*2], actual);
 
-                    actual = point.Y;
-                    Assert.AreEqual(arrOut[i*2 + 1], actual);
+                        actual = point.Y;
+                        Assert.AreEqual(arrOut[i*2 + 1], actual);
+                    }
+                    catch (ExceptionPointSetCoordinateString exPointSetCoordinateString)
+                    {
+                        Assert.AreEqual("Некоректные координаты объекта", exPointSetCoordinateString.Message);
+                    }
                 }
-            }
-            catch (ExceptionPointX exPointX)
-            {
-                Assert.AreEqual("Координата X не может быть меньше нуля", exPointX.Message);
-            }
-            catch (ExceptionPointY exPointY)
-            {
-                Assert.AreEqual("Координата Y не может быть меньше нуля", exPointY.Message);
-            }
-            catch (ExceptionPointSetCoordinateString exPointSetCoordinateString)
-            {
-                Assert.AreEqual("Некоректные координаты объекта", exPointSetCoordinateString.Message);
-            }
+            
         }
     }
 }

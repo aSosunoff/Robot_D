@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot_D", "Robot_D\Robot_D.csproj", "{0AF14B80-5F00-4532-85AB-B0CEE809C364}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{69B07BF6-15CE-4175-9735-F6CEDEC435FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestHome", "UnitTestHome\UnitTestHome.csproj", "{6D92C35F-A1A2-4D17-9336-0F44B8FAE660}"
 EndProject
@@ -19,10 +17,6 @@ Global
 		{0AF14B80-5F00-4532-85AB-B0CEE809C364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF14B80-5F00-4532-85AB-B0CEE809C364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF14B80-5F00-4532-85AB-B0CEE809C364}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69B07BF6-15CE-4175-9735-F6CEDEC435FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69B07BF6-15CE-4175-9735-F6CEDEC435FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69B07BF6-15CE-4175-9735-F6CEDEC435FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69B07BF6-15CE-4175-9735-F6CEDEC435FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D92C35F-A1A2-4D17-9336-0F44B8FAE660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D92C35F-A1A2-4D17-9336-0F44B8FAE660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D92C35F-A1A2-4D17-9336-0F44B8FAE660}.Release|Any CPU.ActiveCfg = Release|Any CPU
