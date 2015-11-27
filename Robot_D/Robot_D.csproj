@@ -49,6 +49,7 @@
     <Compile Include="App_Code\Bottom_Layer\Course.cs" />
     <Compile Include="App_Code\Center_Layer\Dron.cs" />
     <Compile Include="Exception\Exception.cs" />
+    <Compile Include="Exception\ExceptionPointSetCoordinateString.cs" />
     <Compile Include="Exception\ExceptionPointX.cs" />
     <Compile Include="Exception\ExceptionPointY.cs" />
     <Compile Include="Form1.cs">
