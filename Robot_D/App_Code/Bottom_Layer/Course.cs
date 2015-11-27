@@ -14,10 +14,10 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                if (_direction != null)
+                //if (_direction != null)
                     return _direction;
-                else 
-                    throw new ExceptionUser("Направление Дрона заданно не правильно");
+                //else 
+                    //throw new ExceptionUser("Направление Дрона заданно не правильно");
             }
             set
             {

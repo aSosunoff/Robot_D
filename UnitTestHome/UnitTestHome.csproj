@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Test_Botom_Layer\TestPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test_Botom_Layer\TestCourse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Robot_D\Robot_D.csproj">
