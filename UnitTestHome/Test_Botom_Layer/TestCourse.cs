@@ -11,7 +11,7 @@ namespace TestPoint.Test_Botom_Layer
     {
         [TestMethod]
         public void CourseTest()
-        {
+        {   //данные для проверки
             var arr = new[]
             {
                 "N", "n",
@@ -21,15 +21,15 @@ namespace TestPoint.Test_Botom_Layer
                 "Q", "q"
             };
 
-            foreach (var elDirection in arr)
+            foreach (var element in arr)
             {
                 try
                 {
-                    var course = new Course(elDirection);
+                    var course = new Course(element);
 
                     var actual = course.Direction;
 
-                    Assert.AreEqual(elDirection, actual);
+                    Assert.AreEqual(element, actual);
                 }
                 catch (ExceptionUser w)
                 {
@@ -37,6 +37,44 @@ namespace TestPoint.Test_Botom_Layer
                 }
             }
 
+        }
+
+        [TestMethod]
+        public void CourseTurnTest()
+        {
+            var arr = new[]
+            {
+                "L", "R"
+            };
+
+            var arrDirectionStart = new[]
+            {
+                "N"
+            };
+
+            var arrDirectionFinish = new[]
+            {
+                "N"
+            };
+
+            foreach (var element in arr)
+            {
+                foreach (var elementdirection in arrDirectionStart)
+                {
+                    var course = new Course(elementdirection);
+
+                    course.Turn(element);
+
+                    var actual = course.Direction;
+
+                    Assert.AreEqual("W", actual);   
+                }
+            }
+            
+
+            
+
+            
         }
     }
 }
