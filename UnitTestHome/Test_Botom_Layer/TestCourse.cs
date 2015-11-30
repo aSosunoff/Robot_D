@@ -40,40 +40,39 @@ namespace TestPoint.Test_Botom_Layer
         }
 
         [TestMethod]
-        public void CourseTurnTest()
+        public void CourseTurnTestSide_L()
         {
-            var arr = new[]
-            {
-                "L", "R"
-            };
-
             var arrDirectionStart = new[]
             {
-                "N"
+                "N", "W", "S", "E"
             };
 
-            var arrDirectionFinish = new[]
+            var arrDirectionFinish_L = new[]
             {
-                "N"
+                "W", "S", "E", "N"
             };
 
-            foreach (var element in arr)
+            var arrDirectionFinish_R = new[]
             {
-                foreach (var elementdirection in arrDirectionStart)
-                {
-                    var course = new Course(elementdirection);
+                "N", "W", "S", "E"
+            };
 
-                    course.Turn(element);
+            for (int i = 0; i < arrDirectionStart.Length; i++)
+            {
+                var course = new Course(arrDirectionStart[i]);
 
-                    var actual = course.Direction;
+                course.Turn("L");
 
-                    Assert.AreEqual("W", actual);   
-                }
+                var actual = course.Direction;
+
+                Assert.AreEqual(arrDirectionFinish_L[i], actual);
+
+                course.Turn("R");
+
+                actual = course.Direction;
+
+                Assert.AreEqual(arrDirectionFinish_R[i], actual);   
             }
-            
-
-            
-
             
         }
     }

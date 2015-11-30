@@ -30,45 +30,50 @@ namespace Robot_D.Bottom_Layer
         }
         public void Turn(string Side)
         {
-            Side = Side.ToUpper();
-            switch (Side)
+            Regex regex = new Regex(@"(^[^\S]*[LlRr][^\S]*$)");
+            if (regex.IsMatch(Side))
             {
-                case "L":
-                    switch (Direction)
-                    {
-                        case "N":
-                            Direction = "W";
-                            break;
-                        case "W":
-                            Direction = "S";
-                            break;
-                        case "S":
-                            Direction = "E";
-                            break;
-                        case "E":
-                            Direction = "N";
-                            break;
-                    }
-                    break;
-                case "R":
-                    switch (Direction)
-                    {
-                        case "N":
+                Side = Side.ToUpper();
+                switch (Side)
+                {
+                    case "L":
+                        switch (Direction)
+                        {
+                            case "N":
+                                Direction = "W";
+                                break;
+                            case "W":
+                                Direction = "S";
+                                break;
+                            case "S":
+                                Direction = "E";
+                                break;
+                            case "E":
+                                Direction = "N";
+                                break;
+                        }
+                        break;
+                    case "R":
+                        switch (Direction)
+                        {
+                            case "N":
 
-                            Direction = "E";
-                            break;
-                        case "E":
-                            Direction = "S";
-                            break;
-                        case "S":
-                            Direction = "W";
-                            break;
-                        case "W":
-                            Direction = "N";
-                            break;
-                    }
-                    break;
+                                Direction = "E";
+                                break;
+                            case "E":
+                                Direction = "S";
+                                break;
+                            case "S":
+                                Direction = "W";
+                                break;
+                            case "W":
+                                Direction = "N";
+                                break;
+                        }
+                        break;
+                }
             }
+            
         }
         #endregion
         #region метод

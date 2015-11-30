@@ -4,7 +4,7 @@ namespace Robot_D.Exception
 {
     public class ExceptionUser : ApplicationException
     {
-        public ExceptionUser() { }
+        //public ExceptionUser() { }
 
         public ExceptionUser(string message) : base(message) { }
 
