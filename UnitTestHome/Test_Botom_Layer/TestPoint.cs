@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Robot_D.Bottom_Layer;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Bottom_Layer;
 
 namespace TestPoint.Test_Botom_Layer
 
@@ -11,100 +13,105 @@ namespace TestPoint.Test_Botom_Layer
     public class TestPoint
     {
         [TestMethod]
-        public void Point_Set_X_Y_int()
+        public void Point_Set_X_int()
         {
-            var arr = new[,]
+            var arrStart = new[]
             {
-                { 0, 1 },
-                { -1, 1 },
-                { -1, 1 },
-                { -2147483648, 2147483647 },
-                { 2147483647, -2147483648 },
+                0,
+                -1,
+                -2147483648,
+                2147483647
             };
 
-            int index = 0;
-            int actual;
-
-            foreach (int iElement in arr)
+            foreach (int xElement in arrStart)
             {
                 try
                 {
-                    if (( index % 2) == 0)
-                    {
-                        var point = new Point(iElement, 1);
+                    var point = new Point(xElement, 1);
 
-                        actual = point.X;                
-                    }
-                    else
-                    {
-                        var point = new Point(1, iElement);
+                    var actual = point.X;
 
-                        actual = point.Y;
-                    }
-                    Assert.AreEqual(iElement, actual);
+                    Assert.AreEqual(xElement, actual);
                 }
-                catch (ExceptionPointX exPointX)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Координата X не может быть меньше нуля", exPointX.Message);
+                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
-                catch (ExceptionPointY exPointY)
-                {
-                    Assert.AreEqual("Координата Y не может быть меньше нуля", exPointY.Message);
-                }
-
-                index++;
             }
         }
 
+        [TestMethod]
+        public void Point_Set_Y_int()
+        {
+            var arrStart = new[]
+            {
+                1,
+                -1,
+                2147483647,
+                -2147483648,
+                0
+            };
 
-        //,
-        //            { -1, 1 },
-        //            { -2147483648, 2147483647 },
-        //            { 2147483647, -2147483648 },
+            foreach (int yElement in arrStart)
+            {
+                try
+                {
+                    var point = new Point(1, yElement);
+
+                    var actual = point.Y;
+
+                    Assert.AreEqual(yElement, actual);
+                }
+                catch (Exception_Point exceptionPoint)
+                {
+                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
+                }
+            }
+        }
+
         [TestMethod]
         public void Point_Set_X_Y_string()
         {
-            
-                var arrIn = new[]
-                {
-                    "      0000020000103       0150       ",
-                    "1 -1",
-                    "-1 1",
-                    "05 06",
-                    "1 1",
-                    "0304 430",
-                    "10 01",
-                    "      103       015       "
-                };
-                var arrOut = new[]
-                {
-                    20000103, 150,
-                    1, -1,
-                    -1, 1,
-                    5, 6,
-                    1, 1,
-                    304, 430,
-                    10, 01,
-                    103, 15
-                };
+            var arrIn = new[]
+            {
+                "      0000020000103       0150       ",
+                "1 -1",
+                "-1 1",
+                "05 06",
+                "1 1",
+                "0304 430",
+                "10 01",
+                "      103       015       "
+            };
+            var arrOut = new[]
+            {
+                20000103, 150,
+                1, -1,
+                -1, 1,
+                5, 6,
+                1, 1,
+                304, 430,
+                10, 01,
+                103, 15
+            };
 
-                for (int i = 0; i < arrIn.Length; i++)
+            for (int i = 0; i < arrIn.Length; i++)
+            {
+                try
                 {
-                    try
-                    {
-                        var point = new Point(arrIn[i]);
+                    var point = new Point(arrIn[i]);
 
-                        var actual = point.X;
-                        Assert.AreEqual(arrOut[i*2], actual);
+                    var actual = point.X;
+                    Assert.AreEqual(arrOut[i*2], actual);
 
-                        actual = point.Y;
-                        Assert.AreEqual(arrOut[i*2 + 1], actual);
-                    }
-                    catch (ExceptionPointSetCoordinateString exPointSetCoordinateString)
-                    {
-                        Assert.AreEqual("Некоректные координаты объекта", exPointSetCoordinateString.Message);
-                    }
+                    actual = point.Y;
+                    Assert.AreEqual(arrOut[i*2 + 1], actual);
                 }
+                catch (Exception_Point exceptionPoint)
+                {
+                    Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]", exceptionPoint.Message);
+                }
+            }
             
         }
     }

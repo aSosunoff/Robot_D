@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Bottom_Layer;
 
 namespace Robot_D.Bottom_Layer
 {
@@ -14,18 +15,15 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                //if (_direction != null)
-                    return _direction;
-                //else 
-                    //throw new ExceptionUser("Направление Дрона заданно не правильно");
+                return _direction;
             }
             set
             {
                 Regex regex = new Regex("^[NnEeSsWw]$");
                 if (regex.IsMatch(value))
-                    _direction = value;
+                    _direction = value.ToUpper();
                 else
-                    throw new ExceptionUser("Дрон может иметь только одно направление из (N, E, S, W)");
+                    throw new Exception_Course("Дрон может иметь только одно направление из (N, E, S, W)");
             }
         }
         public void Turn(string Side)
@@ -33,7 +31,7 @@ namespace Robot_D.Bottom_Layer
             Regex regex = new Regex(@"(^[^\S]*[LlRr][^\S]*$)");
             if (regex.IsMatch(Side))
             {
-                Side = Side.ToUpper();
+                Side = Side.ToUpper().Trim();
                 switch (Side)
                 {
                     case "L":
@@ -57,7 +55,6 @@ namespace Robot_D.Bottom_Layer
                         switch (Direction)
                         {
                             case "N":
-
                                 Direction = "E";
                                 break;
                             case "E":
@@ -73,6 +70,8 @@ namespace Robot_D.Bottom_Layer
                         break;
                 }
             }
+            else
+                throw new Exception_Course("Поворот задан не правильно. Попробуйте ещё раз");
             
         }
         #endregion

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Bottom_Layer;
 
 namespace Robot_D.Bottom_Layer
 {
@@ -15,17 +16,14 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                //if (_x >= 0)
-                    return _x;
-                //else
-                //    throw new ExceptionPointX("Координата X не задана либо она не может быть менше нуля");
+                return _x;
             }
             set
             {
                 if (value >= 0)
                     _x = value;
                 else
-                    throw new ExceptionPointX("Координата X не может быть меньше нуля");
+                    throw new Exception_Point("Задать X координату можно от 0 до 2147483647");
             }
         }
 
@@ -33,10 +31,7 @@ namespace Robot_D.Bottom_Layer
         {
             get
             {
-                //if (_y >= 0)
-                    return _y;
-                //else
-                //    throw new ExceptionPointY("Координата Y не задана либо она не может быть менше нуля");
+                return _y;
             }
             set
             {
@@ -45,7 +40,7 @@ namespace Robot_D.Bottom_Layer
                     _y = value;
                 }
                 else
-                    throw new ExceptionPointY("Координата Y не может быть меньше нуля");
+                    throw new Exception_Point("Задать Y координату можно от 0 до 2147483647");
             }
         }
             
@@ -69,7 +64,7 @@ namespace Robot_D.Bottom_Layer
                 Y = Convert.ToInt32(matches[1].Value);
             }
             else
-                throw new ExceptionPointSetCoordinateString("Некоректные координаты объекта");
+                throw new Exception_Point("Строка должна содержать 2 числа через [Пробел]");
         }
 
         #endregion

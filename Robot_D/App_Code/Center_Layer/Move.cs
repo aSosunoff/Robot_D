@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using Robot_D.Bottom_Layer;
 using Robot_D.Center_Layer;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Center_Layer;
 
 namespace Robot_D.Center_Layer
 {
-    class Move
+    public class Move
     {
         #region поле
         private Point _point;
@@ -51,8 +52,12 @@ namespace Robot_D.Center_Layer
                 _point = new Point(Convert.ToInt32(matches[0].Value), Convert.ToInt32(matches[1].Value));
                 _course = new Course(matches[2].ToString());
             }
+            else
+            {
+                throw new Exception_Move("Не правильно задана позиция");
+            }
         }
-
+        #endregion
         public void Turn(string Side)
         {
             _course.Turn(Side);
@@ -103,7 +108,7 @@ namespace Robot_D.Center_Layer
                 }
             }
         }
-        #endregion
+        
         #region метод
 
         #endregion

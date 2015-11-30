@@ -1,5 +1,8 @@
-﻿using Robot_D.Bottom_Layer;
+﻿using System;
+using Robot_D.Bottom_Layer;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception.Exception_Center_Layer;
 
 namespace Robot_D.Center_Layer
 {
@@ -13,47 +16,15 @@ namespace Robot_D.Center_Layer
         {
             get
             {
-                try
-                {
-                    return _point.X;
-                }
-                catch (ExceptionUser)
-                {
-                    throw new ExceptionUser("Координата X у поля не корректна");
-                }  
-                
+                return _point.X;
             }
-            set { _point.X = value; }
         }
         public int Max_Y
         {
             get
             {
-                try
-                {
-                    return _point.Y;
-                }
-                catch (ExceptionUser)
-                {
-                    throw new ExceptionUser("Координата Y у поля не корректна");
-                }  
+                return _point.Y;
             }
-            set { _point.Y = value; }
-        }
-
-        public string SetArea
-        {      
-            set
-            {
-                try
-                {
-                    _point.SetCoordinate(value);
-                }
-                catch (ExceptionUser)
-                {
-                    throw new ExceptionUser("Координаты поля не корректны");
-                }
-            }               
         }
         #endregion
         #region конструктор
@@ -64,9 +35,9 @@ namespace Robot_D.Center_Layer
             {
                 _point = new Point(s);
             }
-            catch (ExceptionUser)
+            catch (Exception_Point exceptionPoint)
             {
-                throw new ExceptionUser("Координаты поля не корректны");
+                throw new Exception_Area(String.Format("Координаты поля не корректны\r\n{0}", exceptionPoint.Message));
             }    
         }
 
@@ -76,21 +47,9 @@ namespace Robot_D.Center_Layer
             {
                 _point = new Point(x, y);
             }
-            catch (ExceptionUser)
+            catch (Exception_Point exceptionPoint)
             {
-                throw new ExceptionUser("Координаты поля не корректны");
-            }     
-        }
-
-        public Area(Area area)
-        {
-            try
-            {
-                _point = new Point(area.Max_X, area.Max_Y);
-            }
-            catch (ExceptionUser)
-            {
-                throw new ExceptionUser("Координаты поля не корректны");
+                throw new Exception_Area(String.Format("Координаты поля не корректны\r\n{0}", exceptionPoint.Message));
             }     
         }
         #endregion 
