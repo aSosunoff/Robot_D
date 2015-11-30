@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Robot_D.Bottom_Layer;
 using Robot_D.Center_Layer;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Bottom_Layer;
 using Robot_D.Exception.Exception_Center_Layer;
 
 namespace Robot_D.Center_Layer
@@ -60,7 +61,15 @@ namespace Robot_D.Center_Layer
         #endregion
         public void Turn(string Side)
         {
-            _course.Turn(Side);
+            try
+            {
+                _course.Turn(Side);
+            }
+            catch (Exception_Course exceptionCourse)
+            {
+                throw new Exception_Move(exceptionCourse.Message);
+            }
+            
         }
 
         public void Run(string command, Area area)

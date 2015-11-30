@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Robot_D.Center_Layer;
 using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception.Exception_Center_Layer;
 
 namespace TestPoint.Test_Center_Layer
 {
@@ -164,18 +165,25 @@ namespace TestPoint.Test_Center_Layer
             var arrStart = new[]
             {
                 "    1 1 N", 
-                "2      323232 w"
+                "2      323232 w",
+                "   02  10     e",
+                "2 1 2 E",
+                "-1 3 S",
+                "0000000001000000                               0505       n         "
             };
 
             var arrFinish = new[]
             {
                 "1 1 N", 
-                "2 323232 W"
+                "2 323232 W",
+                "2 10 E",
+                "ERROR",
+                "ERROR",
+                "1000000 505 N"
             };
 
             for (int i = 0; i < arrStart.Length; i++)
             {
-
                 try
                 {
                     var move = new Move(arrStart[i]);
@@ -184,12 +192,38 @@ namespace TestPoint.Test_Center_Layer
 
                     Assert.AreEqual(arrFinish[i], actual);
                 }
-                catch (Exception_Course exceptionCourse)
+                catch (Exception_Move exceptionCourse)
                 {
                     Assert.AreEqual("Не правильно задана позиция", exceptionCourse.Message);
                 }
             }
         }
+
+        [TestMethod]
+        public void Move_Turn()
+        {
+            var arrStart = new[]
+            {
+                "R", "r", "L", "l"
+            };
+
+            var arrFinish = new[]
+            {
+                "R", "R", "L", "L"
+            };
+
+            var move = new Move(1, 1, "N");
+
+            for (int i = 0; i < arrStart.Length; i++)
+            {
+                
+            }
+            foreach (var element in arr)
+            {
+                
+            }
+        }
+
 
     }
 }
