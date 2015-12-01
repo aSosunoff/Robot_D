@@ -47,13 +47,15 @@ namespace Robot_D.Bottom_Layer
         #endregion
         #region метод
 
-        public void SetCoordinate(int x, int y)
+        #endregion
+        #region конструктор
+
+        public Point(int x, int y)
         {
             X = x;
             Y = y;
         }
-
-        public void SetCoordinate(string X_Y)
+        public Point(string X_Y)
         {
             Regex regex = new Regex(@"^[^\S]*[0-9]+[^\S]+[0-9]+[^\S]*$");
             if (regex.IsMatch(X_Y))
@@ -65,18 +67,6 @@ namespace Robot_D.Bottom_Layer
             }
             else
                 throw new Exception_Point("Строка должна содержать 2 числа через [Пробел]");
-        }
-
-        #endregion
-        #region конструктор
-
-        public Point(int x, int y)
-        {
-            SetCoordinate(x, y);
-        }
-        public Point(string X_Y)
-        {
-            SetCoordinate(X_Y);
         }
         #endregion
         

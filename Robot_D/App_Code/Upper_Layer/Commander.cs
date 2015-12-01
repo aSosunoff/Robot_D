@@ -47,7 +47,6 @@ namespace Upper_Layer
                     i++;
                     s += String.Format("{0} {1} {2}\r\n", dron.X, dron.Y, dron.Direction);
                 }
-                //var s = _dron.Select(d => new);
                 return s;
             }
             else

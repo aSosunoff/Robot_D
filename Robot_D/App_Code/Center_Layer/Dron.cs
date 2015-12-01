@@ -1,4 +1,6 @@
-﻿namespace Robot_D.Center_Layer
+﻿using Robot_D.Exception.Exception_Center_Layer;
+
+namespace Robot_D.Center_Layer
 {
     public class Dron
     {
@@ -26,18 +28,40 @@
 
         public Dron(string setPosition)
         {
-            _move = new Move(setPosition);
+            try
+            {
+                _move = new Move(setPosition);
+            }
+            catch (Exception_Move exceptionMove)
+            {
+                throw new Exception_Dron(exceptionMove.Message);
+            }
         }
 
         public Dron(int x, int y, string d)
         {
-            _move = new Move(x, y, d);
+            try
+            {
+                _move = new Move(x, y, d);
+            }
+            catch (Exception_Move exceptionMove)
+            {
+                throw new Exception_Dron(exceptionMove.Message);
+            }
         }
         #endregion
 
         public void Move(string command, Area area)
         {
-            _move.Run(command, area); 
+            try
+            {
+                _move.Run(command, area);
+            }
+            catch (Exception_Move exceptionMove)
+            {
+                throw new Exception_Dron(exceptionMove.Message);
+            }
+            
         }
     }
 }

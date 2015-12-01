@@ -40,8 +40,20 @@ namespace Robot_D.Center_Layer
         #region конструктор
         public Move(int x, int y, string direction)
         {
-            _point = new Point(x, y);
-            _course = new Course(direction);
+            try
+            {
+                _point = new Point(x, y);
+                _course = new Course(direction);
+            }
+            catch (Exception_Point exceptionPoint)
+            {
+                throw new Exception_Move(exceptionPoint.Message);
+            }
+            catch (Exception_Course exceptionCourse)
+            {
+                throw new Exception_Move(exceptionCourse.Message);
+            }
+            
         }
         public Move(string setPosition)
         {
@@ -93,29 +105,31 @@ namespace Robot_D.Center_Layer
                                 if (Y < area.Max_Y)
                                     Y++;
                                 else
-                                    throw new ExceptionUser("Дрон выходит из зданного поля");
+                                    throw new Exception_Move("Дрон выходит из зданного поля");
                                 break;
                             case "E":
                                 if (X < area.Max_X)
                                     X++;
                                 else
-                                    throw new ExceptionUser("Дрон выходит из зданного поля");
+                                    throw new Exception_Move("Дрон выходит из зданного поля");
                                 break;
                             case "S":
                                 if (Y > 0)
                                     Y--;
                                 else
-                                    throw new ExceptionUser("Дрон выходит из зданного поля");
+                                    throw new Exception_Move("Дрон выходит из зданного поля");
                                 break;
                             case "W":
                                 if (X > 0)
                                     X--;
                                 else
-                                    throw new ExceptionUser("Дрон выходит из зданного поля");
+                                    throw new Exception_Move("Дрон выходит из зданного поля");
                                 break;
                         }
                 }
             }
+            else
+                throw new Exception_Move("Ваша команда не корректна");
         }
         
         #region метод
