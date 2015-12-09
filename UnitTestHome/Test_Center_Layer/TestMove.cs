@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Center_Layer;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D.Dron;
 using Robot_D.Exception.Exception_Bottom_Layer;
 using Robot_D.Exception.Exception_Center_Layer;
+using Robot_D.Plato;
+using Robot_D.Spare_Paths;
 
 namespace TestPoint.Test_Center_Layer
 {
@@ -22,15 +22,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var move = new Move(element, 1, "N");
+                    var move = new Move(new Point(element, 1), new Course("N"));
 
                     var actual = move.X;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionMove.Message);
+                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
             }
         }
@@ -46,15 +46,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var move = new Move(1, element, "N");
+                    var move = new Move(new Point(1, element), new Course("N"));
 
                     var actual = move.Y;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionMove.Message);
+                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
             }
         }
@@ -75,15 +75,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var move = new Move(1, 1, arrStart[i]);
+                    var move = new Move(new Point(1, 1), new Course(arrStart[i]));
 
                     var actual = move.Direction;
 
                     Assert.AreEqual(arrFinish[i], actual);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (Exception_Course exceptionCourse)
                 {
-                    Assert.AreEqual("Дрон может иметь только одно направление из (N, E, S, W)", exceptionMove.Message);  
+                    Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionCourse.Message);  
                 }
             }
         }
@@ -98,7 +98,7 @@ namespace TestPoint.Test_Center_Layer
 
             foreach (var element in arr)
             {
-                var move = new Move(1, 1, "N");
+                var move = new Move(new Point(1, 1), new Course("N"));
 
                 try
                 {
@@ -143,7 +143,7 @@ namespace TestPoint.Test_Center_Layer
 
             for (int i = 0; i < arrStart.Length; i++)
             {
-                var move = new Move(1, 1, "N");
+                var move = new Move(new Point(1, 1), new Course("N"));
 
                 try
                 {
@@ -155,50 +155,50 @@ namespace TestPoint.Test_Center_Layer
                 }
                 catch (Exception_Course exceptionCourse)
                 {
-                    Assert.AreEqual("Дрон может иметь только одно направление из (N, E, S, W)", exceptionCourse.Message);
+                    Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionCourse.Message);
                 }
             }
         }
 
-        [TestMethod]
-        public void Move_Constructor_String()
-        {
-            var arrStart = new[]
-            {
-                "    1 1 N", 
-                "2      323232 w",
-                "   02  10     e",
-                "2 1 2 E",
-                "-1 3 S",
-                "0000000001000000                               0505       n         "
-            };
+        //[TestMethod]
+        //public void Move_Constructor_String()
+        //{
+        //    var arrStart = new[]
+        //    {
+        //        "    1 1 N", 
+        //        "2      323232 w",
+        //        "   02  10     e",
+        //        "2 1 2 E",
+        //        "-1 3 S",
+        //        "0000000001000000                               0505       n         "
+        //    };
 
-            var arrFinish = new[]
-            {
-                "1 1 N", 
-                "2 323232 W",
-                "2 10 E",
-                "ERROR",
-                "ERROR",
-                "1000000 505 N"
-            };
+        //    var arrFinish = new[]
+        //    {
+        //        "1 1 N", 
+        //        "2 323232 W",
+        //        "2 10 E",
+        //        "ERROR",
+        //        "ERROR",
+        //        "1000000 505 N"
+        //    };
 
-            for (int i = 0; i < arrStart.Length; i++)
-            {
-                try
-                {
-                    var move = new Move(arrStart[i]);
+        //    for (int i = 0; i < arrStart.Length; i++)
+        //    {
+        //        try
+        //        {
+        //            var move = new Move(arrStart[i]);
 
-                    var actual = String.Format("{0} {1} {2}", move.X, move.Y, move.Direction);
+        //            var actual = String.Format("{0} {1} {2}", move.X, move.Y, move.Direction);
 
-                    Assert.AreEqual(arrFinish[i], actual);
-                }
-                catch (Exception_Move exceptionCourse)
-                {
-                    Assert.AreEqual("Не правильно задана позиция", exceptionCourse.Message);
-                }
-            }
-        }
+        //            Assert.AreEqual(arrFinish[i], actual);
+        //        }
+        //        catch (Exception_Move exceptionCourse)
+        //        {
+        //            Assert.AreEqual("Не правильно задана позиция", exceptionCourse.Message);
+        //        }
+        //    }
+        //}
 
         [TestMethod]
         public void Move_Turn_Test()
@@ -208,16 +208,16 @@ namespace TestPoint.Test_Center_Layer
                 "R", "r", "L", "l", "asd", "RT", "2"
             };
 
-            var move = new Move(1, 1, "N");
+            var move = new Move(new Point(1, 1), new Course("N"));
             foreach (var element in arrStart)
             {
                 try
                 {
                     move.Turn(element);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (Exception_Course exceptionCourse)
                 {
-                    Assert.AreEqual("Поворот задан не правильно. Попробуйте ещё раз", exceptionMove.Message);
+                    Assert.AreEqual("Поворот задан не правильно. Попробуйте ещё раз", exceptionCourse.Message);
                 }
             }
         }
@@ -239,9 +239,9 @@ namespace TestPoint.Test_Center_Layer
                 "lMmmm"
             };
 
-            var area = new Area(1, 1);
+            var area = new Area(new Point(1, 1));
 
-            var move = new Move(1, 1, "N");
+            var move = new Move(new Point(1, 1), new Course("N"));
 
             foreach (var element in command)
             {

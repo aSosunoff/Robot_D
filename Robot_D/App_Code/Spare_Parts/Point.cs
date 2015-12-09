@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Robot_D.Exception;
 using Robot_D.Exception.Exception_Bottom_Layer;
 
-namespace Robot_D.Bottom_Layer
+namespace Robot_D.Spare_Paths
 {
     public class Point
     {
@@ -20,7 +20,7 @@ namespace Robot_D.Bottom_Layer
             }
             set
             {
-                if (value >= 0)
+                if ((value >= 0) && (value <= 2147483647))
                     _x = value;
                 else
                     throw new Exception_Point("Задать X координату можно от 0 до 2147483647");
@@ -35,7 +35,7 @@ namespace Robot_D.Bottom_Layer
             }
             set
             {
-                if (value >= 0)
+                if ((value >= 0) && (value <= 2147483647))
                 {
                     _y = value;
                 }
@@ -49,7 +49,7 @@ namespace Robot_D.Bottom_Layer
 
         #endregion
         #region конструктор
-
+        public Point(){}
         public Point(int x, int y)
         {
             X = x;
@@ -57,10 +57,10 @@ namespace Robot_D.Bottom_Layer
         }
         public Point(string X_Y)
         {
-            Regex regex = new Regex(@"^[^\S]*[0-9]+[^\S]+[0-9]+[^\S]*$");
+            Regex regex = new Regex(@"^\s*\d+\s+\d+\s*$");
             if (regex.IsMatch(X_Y))
             {
-                regex = new Regex(@"([1-9]+(0*[1-9]*)*)|^0$");
+                regex = new Regex(@"([1-9]+\d*)|^0$");
                 MatchCollection matches = regex.Matches(X_Y);
                 X = Convert.ToInt32(matches[0].Value);
                 Y = Convert.ToInt32(matches[1].Value);

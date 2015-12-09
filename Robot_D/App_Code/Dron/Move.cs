@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Robot_D.Bottom_Layer;
-using Robot_D.Center_Layer;
+using Robot_D.Spare_Paths;
 using Robot_D.Exception;
 using Robot_D.Exception.Exception_Bottom_Layer;
 using Robot_D.Exception.Exception_Center_Layer;
+using Robot_D.Plato;
 
-namespace Robot_D.Center_Layer
+namespace Robot_D.Dron
 {
     public class Move
     {
@@ -38,55 +38,28 @@ namespace Robot_D.Center_Layer
         }
         #endregion
         #region конструктор
-        public Move(int x, int y, string direction)
+        public Move(Point point, Course course)
         {
-            try
+            _point = new Point()
             {
-                _point = new Point(x, y);
-                _course = new Course(direction);
-            }
-            catch (Exception_Point exceptionPoint)
+                X = point.X,
+                Y = point.Y
+            };
+            _course = new Course()
             {
-                throw new Exception_Move(exceptionPoint.Message);
-            }
-            catch (Exception_Course exceptionCourse)
-            {
-                throw new Exception_Move(exceptionCourse.Message);
-            }
-            
+                Direction = course.Direction
+            };
         }
-        public Move(string setPosition)
-        {
-            Regex regex = new Regex(@"^[^\S]*\d+[^\S]+\d+[^\S]+[NnEeSsWw]{1,1}[^\S]*$");
-            if (regex.IsMatch(setPosition))
-            {
-                regex = new Regex(@"(\d+(0*\d*)*)|([NnEeSsWw]{1,1})");
-                MatchCollection matches = regex.Matches(setPosition);
-                _point = new Point(Convert.ToInt32(matches[0].Value), Convert.ToInt32(matches[1].Value));
-                _course = new Course(matches[2].ToString());
-            }
-            else
-            {
-                throw new Exception_Move("Не правильно задана позиция");
-            }
-        }
+
         #endregion
         public void Turn(string Side)
         {
-            try
-            {
-                _course.Turn(Side);
-            }
-            catch (Exception_Course exceptionCourse)
-            {
-                throw new Exception_Move(exceptionCourse.Message);
-            }
-            
+            _course.Turn(Side);
         }
 
         public void Run(string command, Area area)
         {
-            Regex regex = new Regex(@"(^[^\S]*[LlRrMm]+([^\S]*[LlRrMm]*)*$)");
+            Regex regex = new Regex(@"(^\s*[LlRrMm]+(\s*[LlRrMm]*)*$)");
             if (regex.IsMatch(command))
             {
                 regex = new Regex("[^LlRrMm]");

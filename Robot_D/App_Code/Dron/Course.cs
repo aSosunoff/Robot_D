@@ -2,7 +2,7 @@
 using Robot_D.Exception;
 using Robot_D.Exception.Exception_Bottom_Layer;
 
-namespace Robot_D.Bottom_Layer
+namespace Robot_D.Dron
 {
     public class Course
     {
@@ -23,12 +23,12 @@ namespace Robot_D.Bottom_Layer
                 if (regex.IsMatch(value))
                     _direction = value.ToUpper();
                 else
-                    throw new Exception_Course("Дрон может иметь только одно направление из (N, E, S, W)");
+                    throw new Exception_Course("Направление может быть одно из (N, E, S, W)");
             }
         }
         public void Turn(string Side)
         {
-            Regex regex = new Regex(@"(^[^\S]*[LlRr][^\S]*$)");
+            Regex regex = new Regex(@"(^\s*[LlRr]\s*$)");
             if (regex.IsMatch(Side))
             {
                 Side = Side.ToUpper().Trim();
@@ -79,6 +79,7 @@ namespace Robot_D.Bottom_Layer
 
         #endregion
         #region конструктор
+        public Course(){}
         public Course(string direction)
         {
             Direction = direction;

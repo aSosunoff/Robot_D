@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Robot_D.Exception;
+using Robot_D.Exception.Exception_Center_Layer;
 using Upper_Layer;
 
 namespace Robot_D
@@ -17,20 +18,18 @@ namespace Robot_D
         public Form1()
         {
             InitializeComponent();
-            
+
 
             try
             {
                 Commander commander = new Commander();
                 tbCommand.Text = commander.SendCommand("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n");
             }
-            catch (ExceptionUser exceptionUser)
+            catch (ApplicationException exception)
             {
-                tbCommand.Text = exceptionUser.Message;
-                //tbCommand.Text += "\r\n" + exceptionUser.TargetSite;
-                //tbCommand.Text += "\r\n" + exceptionUser.Source;
-                //tbCommand.Text += "\r\n" + exceptionUser.StackTrace;
+                tbCommand.Text = exception.Message;
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,9 +39,9 @@ namespace Robot_D
                 Commander commander = new Commander();
                 tbCommand.Text = commander.SendCommand(tbCommand.Text);
             }
-            catch (ExceptionUser exceptionUser)
+            catch (ApplicationException exception)
             {
-                tbCommand.Text = exceptionUser.Message;
+                tbCommand.Text = exception.Message;
                 //tbCommand.Text += "\r\n" + exceptionUser.TargetSite;
                 //tbCommand.Text += "\r\n" + exceptionUser.Source;
                 //tbCommand.Text += "\r\n" + exceptionUser.StackTrace;

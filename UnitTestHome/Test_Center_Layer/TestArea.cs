@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Center_Layer;
-using Robot_D.Exception;
-using Robot_D.Exception.Exception_Center_Layer;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D.Spare_Paths;
+using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Plato;
 
 namespace TestPoint.Test_Center_Layer
 {
@@ -21,15 +20,19 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var area = new Area(xElement, 1);
+                    var area = new Area(new Point(xElement, 1)); //xElement, 1);
 
                     var actual = area.Max_X;
 
                     Assert.AreEqual(xElement, actual);
                 }
-                catch (Exception_Area exceptionArea)
+                    //catch (Exception_Area exceptionArea)
+                    //{
+                    //    Assert.AreEqual("Координаты поля не корректны\r\nЗадать X координату можно от 0 до 2147483647", exceptionArea.Message);
+                    //}
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Координаты поля не корректны\r\nЗадать X координату можно от 0 до 2147483647", exceptionArea.Message);
+                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
                 
             }
@@ -38,15 +41,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var area = new Area(1, yElement);
+                    var area = new Area(new Point(1, yElement));//(1, yElement);
 
                     var actual = area.Max_Y;
 
                     Assert.AreEqual(yElement, actual);
                 }
-                catch (Exception_Area exceptionArea)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Координаты поля не корректны\r\nЗадать Y координату можно от 0 до 2147483647", exceptionArea.Message);
+                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
 
             }
@@ -83,7 +86,7 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var area = new Area(arrIn[i]);
+                    var area = new Area(new Point(arrIn[i]));//arrIn[i]);
 
                     var actual = area.Max_X;
                     Assert.AreEqual(arrOut[i * 2], actual);
@@ -91,9 +94,9 @@ namespace TestPoint.Test_Center_Layer
                     actual = area.Max_Y;
                     Assert.AreEqual(arrOut[i * 2 + 1], actual);
                 }
-                catch (Exception_Area exceptionArea)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Координаты поля не корректны\r\nСтрока должна содержать 2 числа через [Пробел]", exceptionArea.Message);
+                    Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]", exceptionPoint.Message);
                 }
             }
         }

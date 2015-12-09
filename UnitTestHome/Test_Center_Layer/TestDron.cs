@@ -1,8 +1,9 @@
-﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Center_Layer;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D.Dron;
+using Robot_D.Exception.Exception_Bottom_Layer;
 using Robot_D.Exception.Exception_Center_Layer;
+using Robot_D.Plato;
+using Robot_D.Spare_Paths;
 
 namespace TestPoint.Test_Center_Layer
 {
@@ -21,15 +22,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(element, 1, "N");
+                    var dron = new Dron(new Point(element, 1), new Course("N"));
 
                     var actual = dron.X;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Dron exceptionDron)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionDron.Message);
+                    Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
 
             }
@@ -47,15 +48,15 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(1, element, "N");
+                    var dron = new Dron(new Point(1, element), new Course("N"));
 
                     var actual = dron.Y;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Dron exceptionDron)
+                catch (Exception_Point exceptionPoint)
                 {
-                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionDron.Message);
+                    Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
 
             }
@@ -78,42 +79,42 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(1, 1, arrDirectionStart[i]);
+                    var dron = new Dron(new Point(1, 1), new Course(arrDirectionStart[i]));
 
                     var actual = dron.Direction;
 
                     Assert.AreEqual(arrDirectionFinish[i], actual);
                 }
-                catch (Exception_Dron exceptionDron)
+                catch (Exception_Course exceptionCourse)
                 {
-                    Assert.AreEqual("Дрон может иметь только одно направление из (N, E, S, W)", exceptionDron.Message);
+                    Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionCourse.Message);
                 }
             }
         }
 
-        [TestMethod]
-        public void Dron_Constructor_String()
-        {
-            var arr = new[]
-            {
-                "1 1 N", 
-                "-1 1 N",
-                "1 -1 N",
-                "1 1 d"
-            };
+        //[TestMethod]
+        //public void Dron_Constructor_String()
+        //{
+        //    var arr = new[]
+        //    {
+        //        "1 1 N", 
+        //        "-1 1 N",
+        //        "1 -1 N",
+        //        "1 1 d"
+        //    };
 
-            foreach (var element in arr)
-            {
-                try
-                {
-                    var dron = new Dron(element);
-                }
-                catch (Exception_Dron exceptionDron)
-                {
-                    Assert.AreEqual("Не правильно задана позиция", exceptionDron.Message);
-                }
-            }
-        }
+        //    foreach (var element in arr)
+        //    {
+        //        try
+        //        {
+        //            var dron = new Dron(element);
+        //        }
+        //        catch (Exception_Dron exceptionDron)
+        //        {
+        //            Assert.AreEqual("Не правильно задана позиция", exceptionDron.Message);
+        //        }
+        //    }
+        //}
 
         [TestMethod]
         public void Dron_Move()
@@ -123,9 +124,9 @@ namespace TestPoint.Test_Center_Layer
                 "R", "r", "L", "l", "asd", "RT", "2", "MmmmmM"
             };
 
-            var dron = new Dron(1, 1 , "N");
+            var dron = new Dron(new Point(1, 1), new Course("N"));
 
-            var area = new Area(1, 1);
+            var area = new Area(new Point(1, 1));//(1, 1);
 
             foreach (var element in arrMove)
             {
@@ -133,18 +134,18 @@ namespace TestPoint.Test_Center_Layer
                 {
                     dron.Move(element, area);
                 }
-                catch (Exception_Dron exceptionDron)
+                catch (Exception_Move exceptionMove)
                 {
-                    switch (exceptionDron.Message)
+                    switch (exceptionMove.Message)
                     {
                         case "Дрон выходит из зданного поля":
-                            Assert.AreEqual("Дрон выходит из зданного поля", exceptionDron.Message);
+                            Assert.AreEqual("Дрон выходит из зданного поля", exceptionMove.Message);
                             break;
                         case "Ваша команда не корректна":
-                            Assert.AreEqual("Ваша команда не корректна", exceptionDron.Message);
+                            Assert.AreEqual("Ваша команда не корректна", exceptionMove.Message);
                             break;
                     }
-                    
+
                 }
             }
         }

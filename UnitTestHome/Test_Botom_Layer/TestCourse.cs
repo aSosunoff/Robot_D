@@ -1,8 +1,5 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Bottom_Layer;
-using Robot_D.Exception;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D.Dron;
 using Robot_D.Exception.Exception_Bottom_Layer;
 
 namespace TestPoint.Test_Botom_Layer
@@ -43,7 +40,7 @@ namespace TestPoint.Test_Botom_Layer
                 }
                 catch (Exception_Course exceptionUser)
                 {
-                    Assert.AreEqual("Дрон может иметь только одно направление из (N, E, S, W)", exceptionUser.Message);
+                    Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionUser.Message);
                 }
             }
         }
