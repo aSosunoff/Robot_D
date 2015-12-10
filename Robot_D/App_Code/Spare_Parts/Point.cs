@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Robot_D.Exception;
-using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception_App;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
 
 namespace Robot_D.Spare_Paths
 {
@@ -49,7 +50,6 @@ namespace Robot_D.Spare_Paths
 
         #endregion
         #region конструктор
-        public Point(){}
         public Point(int x, int y)
         {
             X = x;
@@ -60,10 +60,10 @@ namespace Robot_D.Spare_Paths
             Regex regex = new Regex(@"^\s*\d+\s+\d+\s*$");
             if (regex.IsMatch(X_Y))
             {
-                regex = new Regex(@"([1-9]+\d*)|^0$");
+                regex = new Regex(@"([1-9]+\d*)|(^\s*0\s)|(\s*0\s*$)");
                 MatchCollection matches = regex.Matches(X_Y);
-                X = Convert.ToInt32(matches[0].Value);
-                Y = Convert.ToInt32(matches[1].Value);
+                X = Convert.ToInt32(matches[0].Value.Trim());
+                Y = Convert.ToInt32(matches[1].Value.Trim());
             }
             else
                 throw new Exception_Point("Строка должна содержать 2 числа через [Пробел]");

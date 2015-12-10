@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
-using Robot_D.Exception;
-using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception_App;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
 
 namespace Robot_D.Dron
 {
@@ -79,7 +80,6 @@ namespace Robot_D.Dron
 
         #endregion
         #region конструктор
-        public Course(){}
         public Course(string direction)
         {
             Direction = direction;

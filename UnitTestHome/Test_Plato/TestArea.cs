@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Robot_D.Spare_Paths;
-using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
 
 namespace TestPoint.Test_Center_Layer
@@ -22,14 +23,10 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var area = new Area(new Point(xElement, 1)); //xElement, 1);
 
-                    var actual = area.Max_X;
+                    var actual = area._point.X;
 
                     Assert.AreEqual(xElement, actual);
                 }
-                    //catch (Exception_Area exceptionArea)
-                    //{
-                    //    Assert.AreEqual("Координаты поля не корректны\r\nЗадать X координату можно от 0 до 2147483647", exceptionArea.Message);
-                    //}
                 catch (Exception_Point exceptionPoint)
                 {
                     Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
@@ -43,7 +40,7 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var area = new Area(new Point(1, yElement));//(1, yElement);
 
-                    var actual = area.Max_Y;
+                    var actual = area._point.Y;
 
                     Assert.AreEqual(yElement, actual);
                 }
@@ -88,10 +85,10 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var area = new Area(new Point(arrIn[i]));//arrIn[i]);
 
-                    var actual = area.Max_X;
+                    var actual = area._point.X;
                     Assert.AreEqual(arrOut[i * 2], actual);
 
-                    actual = area.Max_Y;
+                    actual = area._point.Y;
                     Assert.AreEqual(arrOut[i * 2 + 1], actual);
                 }
                 catch (Exception_Point exceptionPoint)

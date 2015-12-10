@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D;
 using Robot_D.Dron;
-using Robot_D.Exception.Exception_Bottom_Layer;
-using Robot_D.Exception.Exception_Center_Layer;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
 using Robot_D.Spare_Paths;
 
@@ -24,7 +26,7 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var dron = new Dron(new Point(element, 1), new Course("N"));
 
-                    var actual = dron.X;
+                    var actual = dron.Point.X;
 
                     Assert.AreEqual(element, actual);
                 }
@@ -50,7 +52,7 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var dron = new Dron(new Point(1, element), new Course("N"));
 
-                    var actual = dron.Y;
+                    var actual = dron.Point.Y;
 
                     Assert.AreEqual(element, actual);
                 }
@@ -81,7 +83,7 @@ namespace TestPoint.Test_Center_Layer
                 {
                     var dron = new Dron(new Point(1, 1), new Course(arrDirectionStart[i]));
 
-                    var actual = dron.Direction;
+                    var actual = dron.Course.Direction;
 
                     Assert.AreEqual(arrDirectionFinish[i], actual);
                 }
@@ -126,26 +128,21 @@ namespace TestPoint.Test_Center_Layer
 
             var dron = new Dron(new Point(1, 1), new Course("N"));
 
-            var area = new Area(new Point(1, 1));//(1, 1);
+            var area = new Area(new Point(1, 1));
 
             foreach (var element in arrMove)
             {
                 try
                 {
-                    dron.Move(element, area);
+                    dron.Run(new Command(element), area);
+                }
+                catch (Exception_Command exceptionCommand)
+                {
+                    Assert.AreEqual("Ваша команда не корректна", exceptionCommand.Message);
                 }
                 catch (Exception_Move exceptionMove)
                 {
-                    switch (exceptionMove.Message)
-                    {
-                        case "Дрон выходит из зданного поля":
-                            Assert.AreEqual("Дрон выходит из зданного поля", exceptionMove.Message);
-                            break;
-                        case "Ваша команда не корректна":
-                            Assert.AreEqual("Ваша команда не корректна", exceptionMove.Message);
-                            break;
-                    }
-
+                    Assert.AreEqual("Дрон выходит из зданного поля", exceptionMove.Message);
                 }
             }
         }

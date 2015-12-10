@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Robot_D.Spare_Paths;
-using Robot_D.Exception.Exception_Bottom_Layer;
+using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Exception_App.Exception_Spare_Parts;
 
 namespace TestPoint.Test_Botom_Layer
 
@@ -69,7 +70,21 @@ namespace TestPoint.Test_Botom_Layer
         public void Point_Set_X_Y_string()
         {
             var arrIn = new[]
-            {
+            {//000 000 доделать регулярку
+                "       0           0           ",
+                "0           0",
+                "   0 0",
+                "0 0        ",
+                "0 0",
+                "1           0      ",
+                "1           0",
+                "1 0      ",
+                "1 0",
+                "          0            1",
+                "0            1",
+                "0 1        ",
+                "0 1",
+                "         0 1",
                 "      0000020000103       0150       ",
                 "1 -1",
                 "-1 1",
@@ -81,6 +96,20 @@ namespace TestPoint.Test_Botom_Layer
             };
             var arrOut = new[]
             {
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                1, 0,
+                1, 0,
+                1, 0,
+                1, 0,
+                0, 1,
+                0, 1,
+                0, 1,
+                0, 1,
+                0, 1,
                 20000103, 150,
                 1, -1,
                 -1, 1,

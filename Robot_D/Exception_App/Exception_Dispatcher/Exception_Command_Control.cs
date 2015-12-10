@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Robot_D.Exception
+namespace Robot_D.Exception_App.Exception_Dispatcher
 {
-    public class ExceptionUser : ApplicationException
+    public class Exception_Command_Control : ApplicationException
     {
         //public ExceptionUser() { }
 
-        public ExceptionUser(string message) : base(message) { }
+        public Exception_Command_Control(string message) : base(message) { }
 
         
         //public override string Message

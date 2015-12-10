@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Robot_D.Exception.Exception_Center_Layer
+namespace Robot_D.Exception_App.Exception_Spare_Parts
 {
     public class Exception_Move : ApplicationException
     {
