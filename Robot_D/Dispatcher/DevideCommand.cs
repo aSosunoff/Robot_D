@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Robot_D.Exception_App;
 using Robot_D.Exception_App.Exception_Dispatcher;
 
-namespace Robot_D.App_Code.Dispatcher
+namespace Robot_D.Dispatcher
 {
     public class DevideCommand
     {

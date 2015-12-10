@@ -5,7 +5,7 @@ using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
-using Robot_D.Spare_Paths;
+using Robot_D.Spare_Parts;
 
 namespace TestPoint.Test_Center_Layer
 {

@@ -44,12 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\Dispatcher\DevideCommand.cs" />
-    <Compile Include="App_Code\Plato\Area.cs" />
-    <Compile Include="App_Code\Dispatcher\ControlCommand.cs" />
-    <Compile Include="App_Code\Dron\Course.cs" />
-    <Compile Include="App_Code\Dron\Dron.cs" />
-    <Compile Include="App_Code\Dron\Command.cs" />
+    <Compile Include="Dispatcher\DevideCommand.cs" />
+    <Compile Include="Plato\Area.cs" />
+    <Compile Include="Dispatcher\ControlCommand.cs" />
+    <Compile Include="Dron\Course.cs" />
+    <Compile Include="Dron\Dron.cs" />
+    <Compile Include="Dron\Command.cs" />
     <Compile Include="Exception_App\Exception_Devide_Command.cs" />
     <Compile Include="Exception_App\Exception_Dispatcher\Exception_Command_Control.cs" />
     <Compile Include="Exception_App\Exception_Dron\Exception_Course.cs" />
@@ -62,8 +62,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Spare_Parts\Point.cs" />
-    <Compile Include="App_Code\Dron\Move.cs" />
+    <Compile Include="Spare_Parts\Point.cs" />
+    <Compile Include="Dron\Move.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

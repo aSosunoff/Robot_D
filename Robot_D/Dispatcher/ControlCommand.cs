@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using Robot_D.App_Code.Dispatcher;
 using Robot_D.Dron;
-using Robot_D.Exception_App;
-using Robot_D.Exception_App.Exception_Dispatcher;
 using Robot_D.Plato;
-using Robot_D.Spare_Paths;
+using Robot_D.Spare_Parts;
 
 namespace Robot_D.Dispatcher
 {
@@ -26,10 +22,9 @@ namespace Robot_D.Dispatcher
 
 
 
-        public ControlCommand(string sendCommand)
+        public ControlCommand(DevideCommand dCommand)
         {
             DronFinish = "";
-            DevideCommand dCommand = new DevideCommand(sendCommand);
 
             Area area = new Area(new Point(dCommand.ArrCommand[0]));
 

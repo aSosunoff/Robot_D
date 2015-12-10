@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Robot_D.Exception_App;
-using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Exception_App.Exception_Spare_Parts;
 
-namespace Robot_D.Spare_Paths
+namespace Robot_D.Spare_Parts
 {
     public class Point
     {

@@ -1,4 +1,4 @@
-﻿using Robot_D.Spare_Paths;
+﻿using Robot_D.Spare_Parts;
 
 namespace Robot_D.Plato
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Robot_D.Plato;
-using Robot_D.Spare_Paths;
+using Robot_D.Spare_Parts;
 
 namespace Robot_D.Dron
 {
