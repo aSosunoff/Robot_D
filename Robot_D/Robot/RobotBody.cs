@@ -1,30 +1,31 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Robot_D.Plato;
-using Robot_D.Spare_Parts;
+﻿using Robot_D.Plato;
+using Robot_D.SpareParts;
 
-namespace Robot_D.Dron
+namespace Robot_D.Robot
 {
-    public class Dron
+    /// <summary>
+    /// Класс робота
+    /// </summary>
+    public class RobotBody
     {
         #region поле
-
         public Point Point;
         public Course Course;
         public Move Move;
         #endregion
-        #region свойство
 
-        #endregion
         #region конструктор
-
-        public Dron(Point point, Course course)
+        public RobotBody(Point point, Course course)
         {
             Point = point;
             Course = course;
         }
         #endregion
-
+        /// <summary>
+        /// Движение робота
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="area"></param>
         public void Run(Command command, Area area)
         {
             new Move(Point, Course, command, area);

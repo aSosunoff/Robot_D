@@ -1,39 +1,45 @@
 ﻿using System.Text.RegularExpressions;
-using Robot_D.Exception_App;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.RobotDException.DronException;
 
-namespace Robot_D.Dron
+namespace Robot_D.Robot
 {
+    /// <summary>
+    /// Класс направления
+    /// </summary>
     public class Course
     {
-
         #region поле
-        private string _direction;
+        private string _Direction;
         #endregion
         #region свойство
+        /// <summary>
+        /// Свойство поворота головы
+        /// </summary>
         public string Direction
         {
-            get
-            {
-                return _direction;
-            }
+            get{ return _Direction; }
             set
             {
                 Regex regex = new Regex("^[NnEeSsWw]$");
                 if (regex.IsMatch(value))
-                    _direction = value.ToUpper();
+                    _Direction = value.ToUpper();
                 else
-                    throw new Exception_Course("Направление может быть одно из (N, E, S, W)");
+                    throw new CourseException("Направление может быть одно из (N, E, S, W)");
             }
         }
-        public void Turn(string Side)
+        #endregion
+        #region метод
+        /// <summary>
+        /// Метод поворота по заданному направлению
+        /// </summary>
+        /// <param name="side">Сторона поворота</param>
+        public void Turn(string side)
         {
             Regex regex = new Regex(@"(^\s*[LlRr]\s*$)");
-            if (regex.IsMatch(Side))
+            if (regex.IsMatch(side))
             {
-                Side = Side.ToUpper().Trim();
-                switch (Side)
+                side = side.ToUpper().Trim();
+                switch (side)
                 {
                     case "L":
                         switch (Direction)
@@ -72,12 +78,8 @@ namespace Robot_D.Dron
                 }
             }
             else
-                throw new Exception_Course("Поворот задан не правильно. Попробуйте ещё раз");
-            
+                throw new CourseException("Поворот задан не правильно. Попробуйте ещё раз");
         }
-        #endregion
-        #region метод
-
         #endregion
         #region конструктор
         public Course(string direction)

@@ -1,18 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Spare_Parts;
+using Robot_D.RobotDException.SparePartsException;
+using Robot_D.SpareParts;
 
-namespace TestPoint.Test_Botom_Layer
+namespace TestPoint.SparePartsTest
 
 {
     [TestClass]
-    public class TestPoint
+    public class PointTest
     {
         [TestMethod]
         public void Point_Set_X_int()
         {
-            var arrStart = new[]
+            var inputValues = new[]
             {
                 0,
                 -1,
@@ -20,7 +19,7 @@ namespace TestPoint.Test_Botom_Layer
                 2147483647
             };
 
-            foreach (int xElement in arrStart)
+            foreach (int xElement in inputValues)
             {
                 try
                 {
@@ -30,7 +29,7 @@ namespace TestPoint.Test_Botom_Layer
 
                     Assert.AreEqual(xElement, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
@@ -40,7 +39,7 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void Point_Set_Y_int()
         {
-            var arrStart = new[]
+            var inputValues = new[]
             {
                 1,
                 -1,
@@ -49,7 +48,7 @@ namespace TestPoint.Test_Botom_Layer
                 0
             };
 
-            foreach (int yElement in arrStart)
+            foreach (int yElement in inputValues)
             {
                 try
                 {
@@ -59,7 +58,7 @@ namespace TestPoint.Test_Botom_Layer
 
                     Assert.AreEqual(yElement, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
@@ -69,7 +68,7 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void Point_Set_X_Y_string()
         {
-            var arrIn = new[]
+            var inputStringXY = new[]
             {//000 000 доделать регулярку
                 "       0           0           ",
                 "0           0",
@@ -94,7 +93,7 @@ namespace TestPoint.Test_Botom_Layer
                 "10 01",
                 "      103       015       "
             };
-            var arrOut = new[]
+            var outputValues = new[]
             {
                 0, 0,
                 0, 0,
@@ -120,19 +119,19 @@ namespace TestPoint.Test_Botom_Layer
                 103, 15
             };
 
-            for (int i = 0; i < arrIn.Length; i++)
+            for (int i = 0; i < inputStringXY.Length; i++)
             {
                 try
                 {
-                    var point = new Point(arrIn[i]);
+                    var point = new Point(inputStringXY[i]);
 
                     var actual = point.X;
-                    Assert.AreEqual(arrOut[i*2], actual);
+                    Assert.AreEqual(outputValues[i*2], actual);
 
                     actual = point.Y;
-                    Assert.AreEqual(arrOut[i*2 + 1], actual);
+                    Assert.AreEqual(outputValues[i*2 + 1], actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]", exceptionPoint.Message);
                 }

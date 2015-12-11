@@ -1,20 +1,19 @@
-﻿using Robot_D.Spare_Parts;
+﻿using Robot_D.SpareParts;
 
 namespace Robot_D.Plato
 {
+    /// <summary>
+    /// Класс поля для роботов
+    /// </summary>
     public class Area
     {
         #region поле
-        public Point _point;
-        #endregion
-        #region свойство
-
+        public Point Point;
         #endregion
         #region конструктор
-
         public Area(Point point)
         {
-            _point = point;
+            Point = point;
         }
         #endregion 
     }

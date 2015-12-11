@@ -1,43 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Robot_D.Exception_App;
-using Robot_D.Exception_App.Exception_Dispatcher;
+using Robot_D.RobotDException.DispatcherException;
 
 namespace Robot_D.Dispatcher
 {
+    /// <summary>
+    /// Класс дробления сырого текста комманд
+    /// </summary>
     public class DevideCommand
     {
         #region поле
-        private string[] _arrCommand;
+        private string[] _CommandsList;
         #endregion
         #region свойство
-        public string[] ArrCommand
+        /// <summary>
+        /// Свойство дробления и добавления в массив комманд для дальнейшего использования и распредиления по объектам
+        /// </summary>
+        public string[] GetArrayListCommand
         {
-            get { return _arrCommand; }
+            get { return _CommandsList; }
             set
             {
-                var command = value[0];
-                command = command.Trim();
-                Regex a = new Regex(@"[^\r\n]+");
-                _arrCommand = a.Matches(command)
+                var lineCommand = value[0];
+                lineCommand = lineCommand.Trim();
+                Regex lineCommandRegex = new Regex(@"[^\r\n]+");
+                _CommandsList = lineCommandRegex.Matches(lineCommand)
                     .Cast<Match>()
-                    .Select(m => m.Value)
+                    .Select(e => e.Value)
                     .ToArray();
-                if (((_arrCommand.Length - 1) % 2) != 0)
+                if (((_CommandsList.Length - 1) % 2) != 0)
                 {
-                    throw new Exception_Devide_Command("Не достаточно данных для отправки");
+                    throw new DevideCommandException("Не достаточно данных для отправки");
                 }
             }
         }
         #endregion
         public DevideCommand(string command)
         {
-            ArrCommand = new[]{command};
+            GetArrayListCommand = new[]{command};
         }
     }
 }

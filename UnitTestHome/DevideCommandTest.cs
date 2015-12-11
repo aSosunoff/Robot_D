@@ -1,37 +1,37 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Robot_D.Dispatcher;
-using Robot_D.Exception_App;
+using Robot_D.RobotDException.DispatcherException;
 
 namespace TestPoint
 {
     [TestClass]
-    public class TestDevideCommand
+    public class DevideCommandTest
     {
         [TestMethod]
         public void DevideCommand_Test()
         {
-            var arrCommandStart = new[]
+            var inputStringCommand = new[]
             {
                 "5 5\r\n1 2 N\r\nLMLMLMLMM\r\n",
                 "5 5\r\n1 2 N\r\nLMLMLMLMM\r\n1 2 N"
             };
 
-            var arrCommandFinish = new[]
+            var outputValues = new IComparable[]
             {
                 3,
-                666
+                "ERROR"
             };
 
-            for (int i = 0; i < arrCommandStart.Length; i++)
+            for (int i = 0; i < inputStringCommand.Length; i++)
             {
                 try
                 {
-                    DevideCommand devideCommand = new DevideCommand(arrCommandStart[i]);
+                    DevideCommand devideCommand = new DevideCommand(inputStringCommand[i]);
 
-                    Assert.AreEqual(devideCommand.ArrCommand.Length, arrCommandFinish[i]);
+                    Assert.AreEqual(devideCommand.GetArrayListCommand.Length, outputValues[i]);
                 }
-                catch (Exception_Devide_Command exceptionDevideCommand)
+                catch (DevideCommandException exceptionDevideCommand)
                 {
                     Assert.AreEqual(exceptionDevideCommand.Message, "Не достаточно данных для отправки");
                 }

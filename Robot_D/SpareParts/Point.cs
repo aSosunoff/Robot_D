@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.RobotDException.SparePartsException;
 
-namespace Robot_D.Spare_Parts
+namespace Robot_D.SpareParts
 {
     public class Point
     {
         #region поле
-        private int _x;
-        private int _y;
+        private int _X;
+        private int _Y;
         #endregion
         #region свойство
         public int X
         {
             get
             {
-                return _x;
+                return _X;
             }
             set
             {
                 if ((value >= 0) && (value <= 2147483647))
-                    _x = value;
+                    _X = value;
                 else
-                    throw new Exception_Point("Задать X координату можно от 0 до 2147483647");
+                    throw new PointException("Задать X координату можно от 0 до 2147483647");
             }
         }
 
@@ -30,16 +30,16 @@ namespace Robot_D.Spare_Parts
         {
             get
             {
-                return _y;
+                return _Y;
             }
             set
             {
                 if ((value >= 0) && (value <= 2147483647))
                 {
-                    _y = value;
+                    _Y = value;
                 }
                 else
-                    throw new Exception_Point("Задать Y координату можно от 0 до 2147483647");
+                    throw new PointException("Задать Y координату можно от 0 до 2147483647");
             }
         }
             
@@ -53,18 +53,18 @@ namespace Robot_D.Spare_Parts
             X = x;
             Y = y;
         }
-        public Point(string X_Y)
+        public Point(string xY)
         {
             Regex regex = new Regex(@"^\s*\d+\s+\d+\s*$");
-            if (regex.IsMatch(X_Y))
+            if (regex.IsMatch(xY))
             {
                 regex = new Regex(@"([1-9]+\d*)|(^\s*0\s)|(\s*0\s*$)");
-                MatchCollection matches = regex.Matches(X_Y);
+                MatchCollection matches = regex.Matches(xY);
                 X = Convert.ToInt32(matches[0].Value.Trim());
                 Y = Convert.ToInt32(matches[1].Value.Trim());
             }
             else
-                throw new Exception_Point("Строка должна содержать 2 числа через [Пробел]");
+                throw new PointException("Строка должна содержать 2 числа через [Пробел]");
         }
         #endregion
         

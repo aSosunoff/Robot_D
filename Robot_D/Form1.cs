@@ -14,7 +14,7 @@ namespace Robot_D
             try
             {
                 ControlCommand commander = new ControlCommand(new DevideCommand("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n"));
-                tbCommand.Text = commander.DronFinish;
+                tbCommand.Text = commander.GetFinalPositionRobot;
             }
             catch (ApplicationException exception)
             {
@@ -28,7 +28,7 @@ namespace Robot_D
             try
             {
                 ControlCommand commander = new ControlCommand(new DevideCommand(tbCommand.Text));
-                tbCommand.Text = commander.DronFinish;
+                tbCommand.Text = commander.GetFinalPositionRobot;
             }
             catch (ApplicationException exception)
             {

@@ -1,50 +1,49 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
-using Robot_D.Spare_Parts;
+using Robot_D.RobotDException.SparePartsException;
+using Robot_D.SpareParts;
 
-namespace TestPoint.Test_Center_Layer
+namespace TestPoint.PlatoTest
 {
     [TestClass]
-    public class TestArea
+    public class AreaTest
     {
         [TestMethod]
         public void Area_Constructor_X_Y_int()
         {
-            var arrStart = new[]
+            var values = new[]
             {
                 -1, 1, 2, 3, -1, 400000000
             };
 
-            foreach (var xElement in arrStart)
+            foreach (var xElement in values)
             {
                 try
                 {
                     var area = new Area(new Point(xElement, 1)); //xElement, 1);
 
-                    var actual = area._point.X;
+                    var actual = area.Point.X;
 
                     Assert.AreEqual(xElement, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
                 
             }
 
-            foreach (var yElement in arrStart)
+            foreach (var yElement in values)
             {
                 try
                 {
                     var area = new Area(new Point(1, yElement));//(1, yElement);
 
-                    var actual = area._point.Y;
+                    var actual = area.Point.Y;
 
                     Assert.AreEqual(yElement, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
@@ -56,7 +55,7 @@ namespace TestPoint.Test_Center_Layer
         [TestMethod]
         public void Area_Constructor_X_Y_string()
         {
-            var arrIn = new[]
+            var inputStringXY = new[]
             {
                 "      0000020000103       0150       ",
                 "1 -1",
@@ -67,7 +66,7 @@ namespace TestPoint.Test_Center_Layer
                 "10 01",
                 "      103       015       "
             };
-            var arrOut = new[]
+            var outputValues = new[]
             {
                 20000103, 150,
                 1, -1,
@@ -79,19 +78,19 @@ namespace TestPoint.Test_Center_Layer
                 103, 15
             };
 
-            for (int i = 0; i < arrIn.Length; i++)
+            for (int i = 0; i < inputStringXY.Length; i++)
             {
                 try
                 {
-                    var area = new Area(new Point(arrIn[i]));//arrIn[i]);
+                    var area = new Area(new Point(inputStringXY[i]));//arrIn[i]);
 
-                    var actual = area._point.X;
-                    Assert.AreEqual(arrOut[i * 2], actual);
+                    var actual = area.Point.X;
+                    Assert.AreEqual(outputValues[i * 2], actual);
 
-                    actual = area._point.Y;
-                    Assert.AreEqual(arrOut[i * 2 + 1], actual);
+                    actual = area.Point.Y;
+                    Assert.AreEqual(outputValues[i * 2 + 1], actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]", exceptionPoint.Message);
                 }

@@ -1,16 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D;
-using Robot_D.Dron;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
-using Robot_D.Spare_Parts;
+using Robot_D.Robot;
+using Robot_D.RobotDException.DronException;
+using Robot_D.RobotDException.SparePartsException;
+using Robot_D.SpareParts;
 
-namespace TestPoint.Test_Center_Layer
+namespace TestPoint.DronTest
 {
     [TestClass]
-    public class TestDron
+    public class DronTest
     {
         [TestMethod]
         public void Dron_X()
@@ -24,13 +22,13 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(new Point(element, 1), new Course("N"));
+                    var dron = new RobotBody(new Point(element, 1), new Course("N"));
 
                     var actual = dron.Point.X;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать X координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
@@ -50,13 +48,13 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(new Point(1, element), new Course("N"));
+                    var dron = new RobotBody(new Point(1, element), new Course("N"));
 
                     var actual = dron.Point.Y;
 
                     Assert.AreEqual(element, actual);
                 }
-                catch (Exception_Point exceptionPoint)
+                catch (PointException exceptionPoint)
                 {
                     Assert.AreEqual("Задать Y координату можно от 0 до 2147483647", exceptionPoint.Message);
                 }
@@ -81,13 +79,13 @@ namespace TestPoint.Test_Center_Layer
             {
                 try
                 {
-                    var dron = new Dron(new Point(1, 1), new Course(arrDirectionStart[i]));
+                    var dron = new RobotBody(new Point(1, 1), new Course(arrDirectionStart[i]));
 
                     var actual = dron.Course.Direction;
 
                     Assert.AreEqual(arrDirectionFinish[i], actual);
                 }
-                catch (Exception_Course exceptionCourse)
+                catch (CourseException exceptionCourse)
                 {
                     Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionCourse.Message);
                 }
@@ -126,7 +124,7 @@ namespace TestPoint.Test_Center_Layer
                 "R", "r", "L", "l", "asd", "RT", "2", "MmmmmM"
             };
 
-            var dron = new Dron(new Point(1, 1), new Course("N"));
+            var dron = new RobotBody(new Point(1, 1), new Course("N"));
 
             var area = new Area(new Point(1, 1));
 
@@ -136,11 +134,11 @@ namespace TestPoint.Test_Center_Layer
                 {
                     dron.Run(new Command(element), area);
                 }
-                catch (Exception_Command exceptionCommand)
+                catch (CommandException exceptionCommand)
                 {
                     Assert.AreEqual("Ваша команда не корректна", exceptionCommand.Message);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (MoveException exceptionMove)
                 {
                     Assert.AreEqual("Дрон выходит из зданного поля", exceptionMove.Message);
                 }

@@ -1,20 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D;
-using Robot_D.Dron;
-using Robot_D.Exception_App.Exception_Spare_Parts;
 using Robot_D.Plato;
-using Robot_D.Spare_Parts;
+using Robot_D.Robot;
+using Robot_D.RobotDException.DronException;
+using Robot_D.SpareParts;
 
-namespace TestPoint.Test_Center_Layer
+namespace TestPoint.DronTest
 {
     [TestClass]
-    public class TestMove
+    public class MoveTest
     {
         [TestMethod]
         public void Move_Run_Test()
         {
-            var commandStart = new[]
+            var inputStringComandRun = new[]
             {
                 "MmmRRmmmm",
                 "M",
@@ -30,7 +29,7 @@ namespace TestPoint.Test_Center_Layer
                 "RMMLLMMM"
             };
 
-            var commandFinish = new[]
+            var outputStringComandRun = new[]
             {
                 new IComparable[]{"ERROR"},
                 new IComparable[]{0, 1, "N"},
@@ -46,7 +45,7 @@ namespace TestPoint.Test_Center_Layer
                 new IComparable[]{"ERROR"}
             };
 
-            for (int i = 0; i < commandStart.Length; i++)
+            for (int i = 0; i < inputStringComandRun.Length; i++)
             {
                 var point = new Point(0, 0);
 
@@ -54,15 +53,15 @@ namespace TestPoint.Test_Center_Layer
 
                 try
                 {
-                    new Move(point, course, new Command(commandStart[i]), new Area(new Point(10, 10)));
+                    new Move(point, course, new Command(inputStringComandRun[i]), new Area(new Point(10, 10)));
 
-                    Assert.AreEqual(commandFinish[i][0], point.X);
+                    Assert.AreEqual(outputStringComandRun[i][0], point.X);
 
-                    Assert.AreEqual(commandFinish[i][1], point.Y);
+                    Assert.AreEqual(outputStringComandRun[i][1], point.Y);
 
-                    Assert.AreEqual(commandFinish[i][2], course.Direction);
+                    Assert.AreEqual(outputStringComandRun[i][2], course.Direction);
                 }
-                catch (Exception_Move exceptionMove)
+                catch (MoveException exceptionMove)
                 {
                     Assert.AreEqual("Дрон выходит из зданного поля", exceptionMove.Message);
                 }

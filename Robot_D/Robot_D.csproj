@@ -47,23 +47,23 @@
     <Compile Include="Dispatcher\DevideCommand.cs" />
     <Compile Include="Plato\Area.cs" />
     <Compile Include="Dispatcher\ControlCommand.cs" />
-    <Compile Include="Dron\Course.cs" />
-    <Compile Include="Dron\Dron.cs" />
-    <Compile Include="Dron\Command.cs" />
-    <Compile Include="Exception_App\Exception_Devide_Command.cs" />
-    <Compile Include="Exception_App\Exception_Dispatcher\Exception_Command_Control.cs" />
-    <Compile Include="Exception_App\Exception_Dron\Exception_Course.cs" />
-    <Compile Include="Exception_App\Exception_Spare_Parts\Exception_Point.cs" />
-    <Compile Include="Exception_App\Exception_Dron\Exception_Move.cs" />
-    <Compile Include="Exception_App\Exception_Dron\Exception_Command.cs" />
+    <Compile Include="Robot\Course.cs" />
+    <Compile Include="Robot\RobotBody.cs" />
+    <Compile Include="Robot\Command.cs" />
+    <Compile Include="RobotDException\DispatcherException\DevideCommandException.cs" />
+    <Compile Include="RobotDException\DispatcherException\CommandControlException.cs" />
+    <Compile Include="RobotDException\DronException\CourseException.cs" />
+    <Compile Include="RobotDException\SparePartsException\PointException.cs" />
+    <Compile Include="RobotDException\DronException\MoveException.cs" />
+    <Compile Include="RobotDException\DronException\CommandException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Spare_Parts\Point.cs" />
-    <Compile Include="Dron\Move.cs" />
+    <Compile Include="SpareParts\Point.cs" />
+    <Compile Include="Robot\Move.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

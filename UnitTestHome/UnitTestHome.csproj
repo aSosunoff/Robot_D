@@ -51,14 +51,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Test_Spare_Parts\TestPoint.cs" />
+    <Compile Include="SparePartsTest\PointTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test_Dron\TestCourse.cs" />
-    <Compile Include="Test_Plato\TestArea.cs" />
-    <Compile Include="Test_Dron\TestMove.cs" />
-    <Compile Include="Test_Dron\TestDron.cs" />
-    <Compile Include="Test_Dron\TestCommand.cs" />
-    <Compile Include="TestDevideCommand.cs" />
+    <Compile Include="DronTest\CourseTest.cs" />
+    <Compile Include="PlatoTest\AreaTest.cs" />
+    <Compile Include="DronTest\MoveTest.cs" />
+    <Compile Include="DronTest\DronTest.cs" />
+    <Compile Include="DronTest\CommandTest.cs" />
+    <Compile Include="DevideCommandTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Robot_D\Robot_D.csproj">

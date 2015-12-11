@@ -1,19 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D;
-using Robot_D.Dron;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Plato;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robot_D.Robot;
+using Robot_D.RobotDException.DronException;
 
-namespace TestPoint
+namespace TestPoint.DronTest
 {
     [TestClass]
-    public class TestCommand
+    public class CommandTest
     {
         [TestMethod]
-        public void Command_Test()
+        public void CommandsTest()
         {
-            var commandStart = new[]
+            var inputStringCommands = new[]
             {
                 "llmmT",
                 "lmMRrRlMm",
@@ -27,10 +24,10 @@ namespace TestPoint
                 "lMmmm"
             };
 
-            var commandFinish = new[]
+            var outputStringCommands = new[]
             {
-                new[]{"ERROR"},
-                new[]{"L","M","M","R","R","R","L","M","M"},
+                new []{"ERROR"},
+                new []{"L","M","M","R","R","R","L","M","M"},
                 new []{"L","M","M","R","R","R","L","R","R","R","R","L","L","L"},
                 new []{"ERROR"},
                 new []{"L"},
@@ -41,19 +38,19 @@ namespace TestPoint
                 new []{"L","M","M","M","M"}
             };
 
-            for (int i = 0; i < commandStart.Length; i++)
+            for (int i = 0; i < inputStringCommands.Length; i++)
             {
                 try
                 {
-                    var command = new Command(commandStart[i]);
+                    var command = new Command(inputStringCommands[i]);
 
-                    for (int j = 0; j < command.Commands.Length; j++)
+                    for (int j = 0; j < command.CommandsList.Length; j++)
                     {
-                        Assert.AreEqual(commandFinish[i][j], command.Commands[j]);
+                        Assert.AreEqual(outputStringCommands[i][j], command.CommandsList[j]);
                     }
                     
                 }
-                catch (Exception_Command exceptionCommand)
+                catch (CommandException exceptionCommand)
                 {
                     Assert.AreEqual("Ваша команда не корректна", exceptionCommand.Message);
                 }

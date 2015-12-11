@@ -1,17 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Robot_D.Dron;
-using Robot_D.Exception_App.Exception_Spare_Parts;
-using Robot_D.Exception_App.Exception_Spare_Parts;
+using Robot_D.Robot;
+using Robot_D.RobotDException.DronException;
 
-namespace TestPoint.Test_Botom_Layer
+namespace TestPoint.DronTest
 {
     [TestClass]
-    public class TestCourse
+    public class CourseTest
     {
         [TestMethod]
         public void CourseDirectionTest()
-        {   //данные для проверки
-            var arrStart = new[]
+        {   
+            var inputStringDirection = new[]
             {
                 "N", "n",
                 "E", "e",
@@ -20,7 +19,7 @@ namespace TestPoint.Test_Botom_Layer
                 "ERROR", "ERROR"
             };
 
-            var arrFinish = new[]
+            var outputValue = new[]
             {
                 "N", "N",
                 "E", "E",
@@ -29,17 +28,17 @@ namespace TestPoint.Test_Botom_Layer
                 "Q", "Q"
             };
 
-            for (int i = 0; i < arrStart.Length; i++)
+            for (int i = 0; i < inputStringDirection.Length; i++)
             {
                 try
                 {
-                    var course = new Course(arrStart[i]);
+                    var course = new Course(inputStringDirection[i]);
 
                     var actual = course.Direction;
 
-                    Assert.AreEqual(arrFinish[i], actual);
+                    Assert.AreEqual(outputValue[i], actual);
                 }
-                catch (Exception_Course exceptionUser)
+                catch (CourseException exceptionUser)
                 {
                     Assert.AreEqual("Направление может быть одно из (N, E, S, W)", exceptionUser.Message);
                 }
@@ -49,12 +48,12 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void CourseTurnL()
         {
-            var arrDirectionStart = new[]
+            var currentDirection = new[]
             {
                 "N", "W", "S", "E"
             };
 
-            var arrDirectionFinish_L = new[]
+            var finalDirection = new[]
             {
                 "W", "S", "E", "N"
             };
@@ -74,18 +73,18 @@ namespace TestPoint.Test_Botom_Layer
             {
                 try
                 {
-                    for (int i = 0; i < arrDirectionStart.Length; i++)
+                    for (int i = 0; i < currentDirection.Length; i++)
                     {
-                        var course = new Course(arrDirectionStart[i]);
+                        var course = new Course(currentDirection[i]);
 
                         course.Turn(element);
 
                         var actual = course.Direction;
 
-                        Assert.AreEqual(arrDirectionFinish_L[i], actual);
+                        Assert.AreEqual(finalDirection[i], actual);
                     }
                 }
-                catch (Exception_Course exceptionCourse)
+                catch (CourseException exceptionCourse)
                 {
                     Assert.AreEqual("Поворот задан не правильно. Попробуйте ещё раз", exceptionCourse.Message);
                 }
@@ -97,12 +96,12 @@ namespace TestPoint.Test_Botom_Layer
         [TestMethod]
         public void CourseTurnR()
         {
-            var arrDirectionStart = new[]
+            var currentDirection = new[]
             {
                 "N", "E", "S", "W"
             };
 
-            var arrDirectionFinish_R = new[]
+            var finalDirection = new[]
             {
                 "E", "S", "W", "N"
             };
@@ -121,18 +120,18 @@ namespace TestPoint.Test_Botom_Layer
             {
                 try
                 {
-                    for(int i = 0; i < arrDirectionStart.Length; i++)
+                    for(int i = 0; i < currentDirection.Length; i++)
                     {
-                        var course = new Course(arrDirectionStart[i]);
+                        var course = new Course(currentDirection[i]);
 
                         course.Turn(element);
 
                         var actual = course.Direction;
 
-                        Assert.AreEqual(arrDirectionFinish_R[i], actual);
+                        Assert.AreEqual(finalDirection[i], actual);
                     }
                 }
-                catch (Exception_Course exceptionCourse)
+                catch (CourseException exceptionCourse)
                 {
                     Assert.AreEqual("Поворот задан не правильно. Попробуйте ещё раз", exceptionCourse.Message);
                 }
