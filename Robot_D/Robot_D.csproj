@@ -47,6 +47,7 @@
     <Compile Include="Dispatcher\DevideCommand.cs" />
     <Compile Include="Plato\Area.cs" />
     <Compile Include="Dispatcher\ControlCommand.cs" />
+    <Compile Include="RobotDException\RootApplicationException.cs" />
     <Compile Include="Robot\Course.cs" />
     <Compile Include="Robot\RobotBody.cs" />
     <Compile Include="Robot\Command.cs" />

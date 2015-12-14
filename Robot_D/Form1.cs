@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Robot_D.Dispatcher;
+using Robot_D.RobotDException;
 
 namespace Robot_D
 {
@@ -16,7 +17,6 @@ namespace Robot_D
             try
             {
                 ControlCommand commander = new ControlCommand(new DevideCommand("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n"));
-                //tbCommand.Text = commander.GetFinalPositionRobot;
                 if (commander.GetFinalPositionRobot != null)
                 {
                     foreach (var el in commander.GetFinalPositionRobot)
@@ -25,7 +25,7 @@ namespace Robot_D
                     }
                 }
             }
-            catch (ApplicationException exception)
+            catch (RootApplicationException exception)
             {
                 tbCommand.Text = exception.Message;
             }
@@ -44,9 +44,8 @@ namespace Robot_D
                         tbCommand.Text += String.Format("{0}: {1}", el.Key, el.Value);
                     }
                 }
-                //tbCommand.Text = commander.GetFinalPositionRobot;
             }
-            catch (ApplicationException exception)
+            catch (RootApplicationException exception)
             {
                 tbCommand.Text += "\r\n" + exception.Message;
 
@@ -57,9 +56,15 @@ namespace Robot_D
                         tbCommand.Text += "\r\n" + String.Format("{0}: {1}", el.Key, el.Value);
                     }
                 }
+            }
+            catch (ApplicationException)
+            {
+                tbCommand.Text += "\r\nНе известная ошибка";
                 //tbCommand.Text += "\r\n" + exceptionUser.TargetSite;
                 //tbCommand.Text += "\r\n" + exceptionUser.Source;
                 //tbCommand.Text += "\r\n" + exceptionUser.StackTrace;
+                //обработать исключение для которого не предуспотренна логика обработки и записать в файл для дальнейшего рассмотрения 
+                //:todo
             }
         }
     }
