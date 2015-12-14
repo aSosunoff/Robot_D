@@ -59,6 +59,7 @@
     <Compile Include="DronTest\DronTest.cs" />
     <Compile Include="DronTest\CommandTest.cs" />
     <Compile Include="DevideCommandTest.cs" />
+    <Compile Include="ControlCommandTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Robot_D\Robot_D.csproj">

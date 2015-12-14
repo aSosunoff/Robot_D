@@ -133,7 +133,7 @@ namespace TestPoint.SparePartsTest
                 }
                 catch (PointException exceptionPoint)
                 {
-                    Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]", exceptionPoint.Message);
+                    Assert.AreEqual("Строка должна содержать 2 числа через [Пробел]. Только положительные числа.", exceptionPoint.Message);
                 }
             }
             

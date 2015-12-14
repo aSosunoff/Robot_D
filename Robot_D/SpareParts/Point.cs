@@ -22,7 +22,12 @@ namespace Robot_D.SpareParts
                 if ((value >= 0) && (value <= 2147483647))
                     _X = value;
                 else
-                    throw new PointException("Задать X координату можно от 0 до 2147483647");
+                {
+                    PointException ex = new PointException("Задать X координату можно от 0 до 2147483647");
+                    ex.Data.Add("Ошибка", "X = " + value);
+                    ex.Data.Add("Справка", "Возможные значения координаты X от 0 до 2147483647");
+                    throw ex;
+                }
             }
         }
 
@@ -39,7 +44,13 @@ namespace Robot_D.SpareParts
                     _Y = value;
                 }
                 else
-                    throw new PointException("Задать Y координату можно от 0 до 2147483647");
+                {
+                    PointException ex = new PointException("Задать Y координату можно от 0 до 2147483647");
+                    ex.Data.Add("Ошибка", "Y = " + value);
+                    ex.Data.Add("Справка", "Возможные значения координаты Y от 0 до 2147483647");
+                    
+                    throw ex;
+                }
             }
         }
             
@@ -64,7 +75,11 @@ namespace Robot_D.SpareParts
                 Y = Convert.ToInt32(matches[1].Value.Trim());
             }
             else
-                throw new PointException("Строка должна содержать 2 числа через [Пробел]");
+            {
+                PointException ex = new PointException("Строка должна содержать 2 числа через [Пробел]. Только положительные числа.");
+                ex.Data.Add("Возможная ошибка в строке", xY);
+                throw ex;
+            }
         }
         #endregion
         
